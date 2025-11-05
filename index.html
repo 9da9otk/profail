@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>سعد السبيعي | الإنجازات والدورات – ثنائي اللغة</title>
-  <meta name="description" content="موقع شخصي ثنائي اللغة لعرض الإنجازات والدورات والمهارات بصورة احترافية." />
+  <title>سعد</title>
+  <meta name="description" content="موقع شخصي ثنائي اللغة لعرض الإنجازات والدورات والمهارات" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -157,7 +157,7 @@
       <div class="container">
         <div class="section__head">
           <h2 class="section__title" id="coursesTitle">الدورات التدريبية والاعتمادات</h2>
-          <p class="section__desc" id="coursesDesc">تم ترتيبها وفق الترقيم الذي زوّدتني به، وتُعرض هنا بدون أرقام.</p>
+          <p class="section__desc" id="coursesDesc"></p>
         </div>
         <div class="surface" style="padding:10px 16px" id="coursesBox"></div>
       </div>
@@ -341,15 +341,16 @@
       document.getElementById('kpiCertsLbl').textContent=(lang==='ar'?'شهادة وتدريب':'Certs & Trainings');
       document.getElementById('kpiProjectsLbl').textContent=(lang==='ar'?'مشروع رئيسي':'Major Projects');
       document.getElementById('achievementsTitle').textContent=(lang==='ar'?'الإنجازات البارزة':'Key Achievements');
-      document.getElementById('achievementsDesc').textContent=(lang==='ar'?'تايم لاين احترافي يوضح الأثر والنتائج.':'Impact-focused timeline of results.');
+      document.getElementById('achievementsDesc').textContent=(lang==='ar'?'':'Impact-focused timeline of results.');
       document.getElementById('coursesTitle').textContent=(lang==='ar'?'الدورات التدريبية والاعتمادات':'Courses & Certifications');
-      document.getElementById('coursesDesc').textContent=(lang==='ar'?'تم ترتيبها وفق الترقيم الذي زوّدتني به، وتُعرض هنا بدون أرقام.':'Ordered per your list and shown without numbers.');
+      document.getElementById('coursesDesc').textContent=(lang==='ar'?'':'Ordered per your list and shown without numbers.');
       document.getElementById('skillsTitle').textContent=(lang==='ar'?'المهارات والأدوات':'Skills & Tools');
       document.getElementById('skillsDesc').textContent=(lang==='ar'?'مجالات الخبرة التقنية والعملية.':'Technical and operational expertise.');
     });
   </script>
 </body>
 </html>
+
 
 
 
