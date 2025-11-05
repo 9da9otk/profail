@@ -12,27 +12,19 @@
 
   <style>
     :root{
-      --brand-primary:#0f172a;
-      --brand-primary-2:#0b1221;
-      --brand-accent:#06b6d4;
-      --brand-accent-2:#22d3ee;
-      --sand:#f6f7fb;
-      --ink:#0a0a0a;
-      --muted:#667085;
-      --card:#ffffff;
+      --brand-primary:#0f172a; --brand-primary-2:#0b1221;
+      --brand-accent:#06b6d4; --brand-accent-2:#22d3ee;
+      --sand:#f6f7fb; --ink:#0a0a0a; --muted:#667085; --card:#ffffff;
       --shadow:0 10px 30px rgba(2,6,23,.12);
-      --radius:20px;
-      --radius-sm:14px;
-      --max:1100px;
+      --radius:20px; --radius-sm:14px; --max:1100px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; background:linear-gradient(180deg,var(--sand),#ffffff 40%); color:var(--ink); font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.7; overflow-x:hidden}
+    body{margin:0; background:linear-gradient(180deg,var(--sand),#fff 40%); color:var(--ink); font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.7; overflow-x:hidden}
     a{color:var(--brand-accent); text-decoration:none}
     img{max-width:100%; display:block}
     .container{width:100%; max-width:var(--max); margin-inline:auto; padding:0 20px}
 
-    /* Header */
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:linear-gradient(180deg, rgba(246,247,251,.86), rgba(255,255,255,.7)); border-bottom:1px solid #eee}
     .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
     .brand{display:flex; align-items:center; gap:12px}
@@ -43,15 +35,7 @@
     .btn--ghost{background:#fff; border:1px solid #eee}
     .btn--accent{background:var(--brand-accent); color:#05202a}
 
-    /* Top contact icons */
-    .contact-top{display:flex; gap:10px; align-items:center; list-style:none; margin:0; padding:0}
-    .contact-top li{list-style:none}
-    .icon{width:20px; height:20px; display:inline-block}
-    .iconbtn{display:grid; place-items:center; width:40px; height:40px; border-radius:12px; background:#fff; border:1px solid #e6e6e6; box-shadow:var(--shadow); color:var(--brand-primary)}
-    .iconbtn:hover{transform:translateY(-1px); box-shadow:0 12px 24px rgba(2,6,23,.12)}
-
-    /* Hero */
-    .hero{position:relative; padding:56px 0 28px; overflow:hidden}
+    .hero{position:relative; padding:56px 0 28px}
     .hero__grid{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center}
     .profile{display:flex; gap:14px; align-items:center; margin-top:12px}
     .profile img{width:92px; height:92px; border-radius:18px; object-fit:cover; border:3px solid #fff; box-shadow:var(--shadow)}
@@ -63,20 +47,17 @@
     .kpi{background:#fff; border:1px solid #eee; border-radius:16px; padding:14px; text-align:center}
     .kpi strong{display:block; font-size:22px; color:var(--brand-primary)}
 
-    /* Section */
     section{padding:34px 0}
     .section__head{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px}
     .section__title{font-size:24px; margin:0}
     .section__desc{color:var(--muted)}
 
-    /* Cards Grid */
     .grid{display:grid; gap:16px}
     .grid--3{grid-template-columns:repeat(3,1fr)}
     .grid--2{grid-template-columns:repeat(2,1fr)}
     @media (max-width:900px){.hero__grid{grid-template-columns:1fr}.grid--3{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:640px){.grid--3,.grid--2{grid-template-columns:1fr}}
-
-    .card{background:var(--card); border:1px solid #eee; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+    .card{background:var(--card); border:1px solid #eee; border-radius:var(--radius); box-shadow:var(--shadow)}
     .card__body{padding:16px}
     .card__title{margin:0 0 6px; font-size:18px}
     .meta{color:var(--muted); font-size:14px}
@@ -103,12 +84,11 @@
     }
 
     /* Courses list */
-    .course{display:flex; gap:12px; align-items:flex-start; padding:12px 0; border-top:1px dashed #eee}
+    .course{display:grid; grid-template-columns:14px 1fr; gap:12px; align-items:start; padding:12px 0; border-top:1px dashed #eee}
     .course:first-child{border-top:0}
-    .course .dot{flex:0 0 10px; height:10px; border-radius:50%; margin-top:7px; background:linear-gradient(135deg,#22d3ee,#06b6d4); box-shadow:0 0 0 6px rgba(34,211,238,.12)}
+    .dot{width:10px; height:10px; border-radius:50%; margin-top:7px; background:linear-gradient(135deg,#22d3ee,#06b6d4); box-shadow:0 0 0 6px rgba(34,211,238,.12)}
     .course-title{margin:0; font-size:16px}
-    .course-meta{color:var(--muted); font-size:13px}
-
+    .course-org{color:var(--muted); font-size:13px}
     footer{padding:28px 0 48px; border-top:1px solid #eee; background:#fff}
     .foot{display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap}
     .chips{display:flex; gap:8px; flex-wrap:wrap}
@@ -129,7 +109,6 @@
         <a id="navCourses" href="#courses" class="btn btn--ghost">الدورات</a>
         <a id="navCV" href="cv.pdf" class="btn btn--accent" target="_blank" rel="noopener" download>تحميل السيرة</a>
         <button id="langToggle" class="btn btn--ghost" aria-label="Language">EN</button>
-        <ul id="contactTop" class="contact-top" aria-label="روابط تواصل"></ul>
       </nav>
     </div>
   </header>
@@ -173,12 +152,12 @@
       </div>
     </section>
 
-    <!-- COURSES (EXACT LIST) -->
+    <!-- COURSES -->
     <section id="courses">
       <div class="container">
         <div class="section__head">
           <h2 class="section__title" id="coursesTitle">الدورات التدريبية والاعتمادات</h2>
-          <p class="section__desc" id="coursesDesc">نصوص الدورات كما هي وبنفس الترتيب.</p>
+          <p class="section__desc" id="coursesDesc">تم ترتيبها وفق الترقيم الذي زوّدتني به، وتُعرض هنا بدون أرقام.</p>
         </div>
         <div class="surface" style="padding:10px 16px" id="coursesBox"></div>
       </div>
@@ -208,214 +187,126 @@
   </footer>
 
   <script>
-    // ===== الملف الشخصي وأيقونات التواصل =====
+    // ===== بيانات عامة =====
     const PROFILE = {
       name: "سعد السبيعي",
       years: 20, certsCount: 60, projectsCount: 30,
-      email: "sa888e@gmail.com", phone: "0571441777",
-      linkedin: "https://www.linkedin.com/in/s3dsu",
       photo: "profile.jpg"
     };
-    function iconSvg(type){
-      if(type==='email') return '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>';
-      if(type==='phone') return '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.61a2 2 0 0 1-.45 2.11L8 9a16 16 0 0 0 7 7l.56-1.28a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.61.62A2 2 0 0 1 22 16.92z"/></svg>';
-      if(type==='whatsapp') return '<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11 11 0 0 0 3.49 20.5L2 22l1.7-.45A11 11 0 1 0 20.52 3.48zm-3.6 13.1c-.18.53-1.04 1-1.45 1.02-.37.02-.84.03-1.35-.08a9.2 9.2 0 0 1-4.06-2.44 10.24 10.24 0 0 1-2.32-3.4c-.47-1.1-.1-1.86.07-2.14.18-.29.4-.45.67-.46l.51-.01c.16 0 .36.01.56.43.21.43.72 1.75.79 1.88.06.13.1.28.02.45-.08.17-.12.27-.25.42-.13.15-.26.33-.37.45-.12.12-.25.25-.11.5.14.25.64 1.06 1.38 1.72.95.84 1.74 1.1 2 .1.25-.99.91-.83 1.54-.67.39.1 1.24.58 1.46.71.22.13.37.2.43.32.06.12.06.68-.12 1.21z"/></svg>';
-      if(type==='linkedin') return '<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 105 8.5 2.5 2.5 0 004.98 3.5zM3 9h4v12H3zM10 9h4v2h.1a4.4 4.4 0 014-2.2c4.3 0 5.1 2.8 5.1 6.5V21h-4v-5c0-1.2 0-2.8-1.8-2.8s-2.1 1.3-2.1 2.7V21h-4z"/></svg>';
-      return '';
-    }
-
-    // ===== واجهة ثنائية اللغة (العناصر العامة فقط؛ قائمة الدورات تبقى كما هي) =====
-    const I18N = {
-      ar:{
-        heroBadge:"سيرة مهنية • أمن وسلامة",
-        heroTitle:(p)=>`مرحبًا، أنا <span class="accent">${p.name}</span> — مدير مناوب وقائد عمليات بخبرة <strong>${fmtNum(p.years)}+ سنة</strong>.`,
-        heroLead:"يعرض الموقع إنجازات ودورات ومهارات بأسلوب مختصر واحترافي.",
-        heroChips:["إدارة العمليات","إدارة المخاطر","لوحات كفاءة KPI","GIS & Power BI"],
-        kpiYears:"سنوات خبرة", kpiCerts:"شهادة وتدريب", kpiProjects:"مشروع رئيسي",
-        sideTitle:"نبذة سريعة",
-        sideText:"Duty Manager للأمن والحركة المرورية؛ لوحات مؤشرات، أتمتة تقارير، وتحسين الاستجابة.",
-        sideChips:["Power BI","Django","Flutter","MapLibre / GIS"],
-        achievementsTitle:"الإنجازات البارزة",
-        achievementsDesc:"ملخص للأثر والنتائج ضمن تايم لاين.",
-        coursesTitle:"الدورات التدريبية والاعتمادات",
-        coursesDesc:"نصوص الدورات كما هي وبنفس الترتيب.",
-        skillsTitle:"المهارات والأدوات",
-        skillsDesc:"مجالات الخبرة التقنية والعملية."
-      },
-      en:{
-        heroBadge:"Professional Profile • HSE & Security",
-        heroTitle:(p)=>`Hi, I'm <span class="accent">${p.name}</span> — Duty Manager & Ops Lead with <strong>${fmtNum(p.years)}+ years</strong>.`,
-        heroLead:"A concise, professional site showing achievements, courses, and skills.",
-        heroChips:["Operations","Risk Management","KPI Dashboards","GIS & Power BI"],
-        kpiYears:"Years Experience", kpiCerts:"Certs & Trainings", kpiProjects:"Major Projects",
-        sideTitle:"Quick Bio",
-        sideText:"Duty Manager for Security & Traffic; dashboards, automation, and faster response.",
-        sideChips:["Power BI","Django","Flutter","MapLibre / GIS"],
-        achievementsTitle:"Key Achievements",
-        achievementsDesc:"Impact-focused highlights on a timeline.",
-        coursesTitle:"Courses & Certifications",
-        coursesDesc:"Course titles kept verbatim and in order.",
-        skillsTitle:"Skills & Tools",
-        skillsDesc:"Technical and operational expertise."
-      }
-    };
-
-    // أرقام دائمًا إنجليزية
     const fmtNum = (n)=>Number(n).toLocaleString('en-US');
-    // سنة هجرية
     function hijriYearFromGregorianYear(gy){
       try{ return new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{year:'numeric'}).format(new Date(gy,5,30)); }
       catch{ return ""; }
     }
 
-    // إنجازات (يمكنك زيادتها لاحقًا)
+    // ===== إنجازات (تايم لاين) =====
     const ACHIEVEMENTS = [
-      { ar:{title:"نجاح خطة اليوم الوطني – الدرعية", detail:"تنسيق الأمن والحركة وتفعيل غرفة عمليات ولوحات مباشرة خفّض زمن الاستجابة."},
-        en:{title:"Saudi National Day – Diriyah", detail:"Coordinated ops with a live control room and dashboards; reduced response time."}, year:2025 },
-      { ar:{title:"لوحة مؤشرات تشغيلية موحّدة (KPI)", detail:"تكامل مصادر الحوادث/المرور/الصيانة مع تقارير تلقائية؛ −60% وقت إعداد التقرير اليومي."},
-        en:{title:"Unified KPI Dashboard", detail:"Integrated incidents/traffic/maintenance; auto-reports cut daily prep time by 60%."}, year:2024 },
-      { ar:{title:"SOPs لإدارة الحشود والفعاليات", detail:"إجراءات تشغيل قياسية لمسارات الدخول/الخروج والتواصل اللاسلكي وتوزيع الأفراد."},
-        en:{title:"Crowd/Event SOPs", detail:"Standardized ingress/egress, radio comms, and staffing playbooks."}, year:2023 },
-      { ar:{title:"أتمتة تقارير نهاية الوردية", detail:"نماذج رقمية وتوليد PDF موحّد لتجميع المصادر وإرسال الملخص تلقائيًا."},
-        en:{title:"Automated Shift-End Reports", detail:"Digital forms with auto-generated PDFs and unified summaries."}, year:2022 }
+      { ar:{title:"نجاح خطة اليوم الوطني – الدرعية", detail:"تنسيق الأمن والحركة وتفعيل غرفة عمليات ولوحات مباشرة خفّض زمن الاستجابة."}, en:{title:"Saudi National Day – Diriyah", detail:"Coordinated ops; live control room & dashboards reduced response time."}, year:2025 },
+      { ar:{title:"لوحة مؤشرات تشغيلية موحّدة (KPI)", detail:"تكامل مصادر الحوادث/المرور/الصيانة وتقارير تلقائية؛ −60% وقت إعداد التقرير اليومي."}, en:{title:"Unified KPI Dashboard", detail:"Integrated incidents/traffic/maintenance; auto reports cut prep time 60%."}, year:2024 },
+      { ar:{title:"SOPs لإدارة الحشود والفعاليات", detail:"إجراءات تشغيل قياسية لمسارات الدخول/الخروج والتواصل وتوزيع الأفراد."}, en:{title:"Crowd/Event SOPs", detail:"Standardized ingress/egress, radio comms, staffing playbooks."}, year:2023 },
+      { ar:{title:"أتمتة تقارير نهاية الوردية", detail:"نماذج رقمية وتوليد PDF موحّد لتجميع المصادر وإرسال الملخص تلقائيًا."}, en:{title:"Automated Shift-End Reports", detail:"Digital forms with auto-generated PDFs and unified summaries."}, year:2022 }
     ];
-
-    // قائمة الدورات — كما هي وبالترتيب
-    const COURSES_RAW = [
-"1.اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻷﻣﻨﻴﺔ (اﻗﻠﻴﻤﻲ)",
-"2.اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻻﻣﻨﻴﺔ (وﻃﻨﻲ)",
-"- ﻣﻨﺼﺔ دروب",
-"PMP",
-"ادارة اﻟﻤﺸﺎرﻳﻊ.3",
-"2015-90001",
-"ﺷﻬﺎدة اﻵﻳﺰو.4",
-"2015-14001",
-"ﺷﻬﺎدة اﻵﻳﺰو.5",
-"2018-45001",
-"ﺷﻬﺎدة اﻵﻳﺰو.6",
-"2018-31000",
-"ﺷﻬﺎدة اﻵﻳﺰو.7",
-"(IBCT)",
-"ﺗﺪرﻳﺐ اﻟﻤﺪرﺑﻴﻦ - اﻟﻤﺠﻠﺲ اﻟﺪوﻟﻲ ﻟﻠﻤﺪرﺑﻴﻦ اﻟﻤﻌﺘﻤﺪﻳﻦ.8",
-"اﻻﻣﻦ واﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ ﻓﻲ اﻟﻤﻨﺸﺂت - اﻛﺎدﻳﻤﻴﺔ ﻣﻨﺸﺂت.9",
-"- ﻣﻌﻬﺪ ﻣﻴﺜﺎق",
-"OSHA",
-"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ ﺑﻤﻌﺎﻳﻴﺮ.10",
-"- ﺟﺎﻣﻌﺔ ﻣﺎﻻﻳﺎ.11",
-"ﺗﻘﻴﻴﻢ اﻟﻤﺨﺎﻃﺮ وإدارﺗﻬﺎ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ",
-"- ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ",
-"OSH",
-"ﻣﺨﺎﻃﺮ اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ.12",
-"اﻟﺴﻼﻣﺔ اﻟﻌﺎﻣﺔ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺑﺮﻧﺎﻣﺞ اﻻﻣﻢ اﻟﻤﺘﺤﺪة.13",
-"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ - اﻟﻤﻨﻈﻤﺔ اﻟﺪوﻟﻴﺔ ﻟﻠﺴﻼﻣﺔ اﻟﻜﻴﻤﻴﺎﺋﻴﺔ.14",
-"ﻣﻜﺎﻓﺤﺔ اﻟﺤﺮاﺋﻖ - اﻟﻤﻨﻈﻤﺔ اﻟﺪوﻟﻴﺔ ﻟﻠﺴﻼﻣﺔ اﻟﻜﻴﻤﻴﺎﺋﻴﺔ.15",
-"ﻣﺪرب اﻣﻦ وﺳﻼﻣﺔ ﻣﻌﺘﻤﺪ - اﻟﻤﻨﻈﻤﺔ اﻟﺪوﻟﻴﺔ ﻟﻠﺴﻼﻣﺔ اﻟﻜﻴﻤﻴﺎﺋﻴﺔ.16",
-"G4S",
-"ﺿﺎﺑﻂ اﻣﻦ ﻣﻌﺘﻤﺪ - ﺷﺮﻛﺔ.17",
-"ﻣﻌﺎﻳﻴﺮ اﻟﺠﻮدة واﻟﺴﻼﻣﺔ ﻓﻲ اﻟﻔﻌﺎﻟﻴﺎت اﻟﺘﺮﻓﻴﻬﻴﺔ - ﻣﻨﺼﺔ دروب.18",
-"ادارة ﻋﻤﻠﻴﺎت اﻧﻈﻤﺔ اﻟﺴﻼﻣﺔ اﻟﻤﺴﺘﻮى.19",
-"- اﻛﺎدﻳﻤﻴﺔ وﻗﺎﻳﺔ",
-"FMS",
-"ﻣﻘﺪﻣﺔ ﻓﻲ اﻟﺼﺤﺔ واﻟﺴﻼﻣﺔ اﻟﻤﻬﻨﻴﺔ - اﻛﺎدﻳﻤﻴﺔ وﻗﺎﻳﺔ.20",
-"STC",
-"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ - ﺷﺮﻛﺔ.21",
-"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ (ادارة اﻻﺗﺼﺎﻻت اﻟﺨﻄﺮة) - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.22",
-"Alison",
-"Alison",
-"اﻟﺘﺤﻘﻴﻖ ﻓﻲ اﻟﺤﻮادث اﻟﻤﻬﻨﻴﺔ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ.23",
-"- ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ.24",
-"ﻣﻘﺪﻣﺔ ﻓﻲ اﻟﻘﺎﻧﻮن اﻟﺠﻨﺎﺋﻲ",
-"Google -",
-"اﻋﺪاد اﻟﺒﻴﺎﻧﺎت ﻟﻼﺳﺘﻜﺸﺎف.25",
-"ﻣﻤﺎرﺳﺔ اﻟﻘﻴﺎدة - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ ﻫﺎرﻓﺎرد.26",
-"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ - ﻣﻨﺼﺔ ﻣﻌﺎرف.27",
-"اﺳﺎﺳﻴﺎت اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ - ﻣﻌﻬﺪ ﺗﺪرب.28",
-"ﺗﺎﺛﻴﺮ اﻟﺤﺮاﺋﻖ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ ﻣﺎرﻳﻼﻧﺪ.29",
-"ادارة اﻻزﻣﺎت - ﺟﺎﻣﻌﺔ اﻟﻔﻴﺼﻞ.30",
-"ادارة اﻟﻤﺨﺎﻃﺮ اﻟﻤﺘﻘﺪﻣﺔ - ﻣﻨﺼﺔ دروب.31",
-"IBM",
-"ﻗﻮاﻋﺪ اﻟﺒﻴﺎﻧﺎت اﻟﻌﻼﺋﻘﻴﺔ - ﺷﺮﻛﺔ.32",
-"ASSP -",
-"ﺗﻄﻮﻳﺮ اﻟﻘﻴﺎدات اﻟﺘﻄﻮﻋﻴﺔ.33",
-"اﻻﺷﺮاف واﻟﺘﻨﻈﻴﻢ اﻻداري - ﻣﻌﻬﺪ اﻻﺧﺘﻴﺎر اﻻﻣﺜﻞ.34",
-"ﻣﻌﺎﻟﺠﺔ ﻧﺼﻮص وادﺧﺎل ﺑﻴﺎﻧﺎت - ﻣﻌﻬﺪ ﻧﻴﻮﻫﻮراﻳﺰن.35",
-"ادارة اﻟﻔﻌﺎﻟﻴﺎت - ﻣﻨﺼﺔ دروب.36",
-"- ﻣﻨﺼﺔ دروب",
-"2013",
-"اﻛﺴﻞ.37",
-"اﻧﺸﺎء ﻟﻮﺣﺔ ﻣﻌﻠﻮﻣﺎت اﻛﺴﻞ - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.38",
-"اﻟﺘﻄﺒﻴﻘﺎت اﻟﻤﻜﺘﺒﻴﺔ ﻣﻦ ﺣﺰﻣﺔ اوﻓﻴﺲ - ﺟﺎﻣﻌﺔ ﻧﺠﺮان.39",
-"ﻣﺎﻳﻜﺮوﺳﻮﻓﺖ وورد - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.40",
-"ﻣﺎﻳﻜﺮوﺳﻮﻓﺖ ﺑﻮرﺑﻮﻳﻨﺖ - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.41",
-"اﻟﺴﻠﻮك اﻟﻤﺴﺆول ﻟﻠﺒﺤﺚ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ ﻳﻮﺗﺮﻳﺨﺖ.42",
-"ﻣﻘﺪﻣﺔ ﻓﻲ ادارة اﻻﻋﻤﺎل - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﻛﻠﻴﺔ ﻟﻨﺪن اﻟﺠﺎﻣﻌﻴﺔ.43",
-"اﻟﺴﻜﺮﺗﺎرﻳﺔ اﻟﺘﻨﻔﻴﺬﻳﺔ - ﻣﻨﺼﺔ دروب.44",
-"ﻣﻜﺎﻓﺤﺔ اﻟﻌﺪوى - اﻟﻬﻼل اﻻﺣﻤﺮ.45",
-"- اﻟﻬﻼل اﻻﺣﻤﺮ.46",
-"اﻟﻘﺎﻧﻮن اﻟﺪوﻟﻲ اﻻﻧﺴﺎﻧﻲ",
-"ادارة اﻟﻜﻮارث واﻻزﻣﺎت - اﻟﻬﻼل اﻻﺣﻤﺮ.47",
-"اﻻﺳﻌﺎﻓﺎت اﻻوﻟﻴﺔ - اﻟﻬﻼل اﻻﺣﻤﺮ.48",
-"- ﻣﻨﺼﺔ ادراك",
-"ICDL",
-"اﻟﺮﺧﺼﺔ اﻟﺪوﻟﻴﺔ ﻟﻘﻴﺎدة اﻟﺤﺎﺳﺐ اﻵﻟﻲ.49",
-"اﻻﻧﻈﻤﺔ واﻟﻘﻮاﻧﻴﻦ - ﻣﻨﺼﺔ دروب.50",
-"ادارة اﻻﻣﻦ واﻟﺴﻼﻣﺔ ﻓﻲ ﻣﻮاﻗﻊ اﻟﺒﻨﺎء - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.51",
-"اﻣﻦ اﻟﻤﻨﺸﺂت - ﻣﻨﺼﺔ دروب.52",
-"ﻣﻜﺎﻓﺤﺔ اﻟﻌﺪوى ﻣﻦ ﻓﺎﻳﺮوس ﻛﻮروﻧﺎ - ﻣﻨﺼﺔ دروب.53",
-"اﻻﻣﻦ واﻟﺴﻼﻣﺔ اﻟﺸﺨﺼﻴﺔ - ﻣﻨﺼﺔ دﻳﺴﺴﺘﺮ ردي.54",
-"ﺑﻴﺌﺎت اﻟﻌﻤﻞ اﻟﻤﻜﺘﺒﻴﺔ اﻟﺼﺤﻴﺔ واﻵﻣﻨﺔ - اﻛﺎدﻳﻤﻴﺔ وﻗﺎﻳﺔ.55",
-"اﻛﺘﺸﺎف رﻳﺎدة اﻷﻋﻤﺎل - ﺳﻴﺴﻜﻮ.56",
-"اﻟﺴﻼﻣﺔ ﻓﻲ ﺻﻨﺎﻋﺔ اﻟﻤﺮاﻓﻖ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ ﻧﻴﻮﻳﻮرك.57",
-"- ﻣﻨﺼﺔ ادراك.58",
-"اﺳﺎﺳﻴﺎت اﻟﺤﺎﺳﺐ اﻵﻟﻲ",
-"www.reallygreatsite.co"
-    ];
-
-    // ===== رسم الواجهة =====
-    let lang='ar';
-    function setDir(){ document.documentElement.lang=lang; document.documentElement.dir=(lang==='ar'?'rtl':'ltr'); }
-    function el(id){ return document.getElementById(id); }
-
-    function renderChips(targetId, items){
-      const box = el(targetId); box.innerHTML='';
-      items.forEach(t=>{ const s=document.createElement('span'); s.className='chip'; s.textContent=t; box.appendChild(s); });
-    }
 
     function renderAchievements(){
-      const ul = el('achievementsList'); ul.innerHTML='';
+      const ul = document.getElementById('achievementsList'); ul.innerHTML='';
       ACHIEVEMENTS.forEach((a,idx)=>{
-        const li = document.createElement('li'); li.className='tl';
-        li.classList.add(idx%2===1 ? 'is-right' : 'is-left');
+        const li = document.createElement('li'); li.className='tl '+(idx%2? 'is-right':'is-left');
         const hy = hijriYearFromGregorianYear(a.year);
-        const yearText = lang==='ar' ? `${fmtNum(a.year)} • ${hy} هـ` : `${fmtNum(a.year)} • ${hy} AH`;
-        const t = a[lang].title, d = a[lang].detail;
+        const yearText = `${fmtNum(a.year)} • ${hy} هـ`;
         li.innerHTML = `<div class="year-chip">${fmtNum(a.year)}</div>
           <div class="card__body">
-            <h4 style="margin:0 0 6px">${t}</h4>
+            <h4 style="margin:0 0 6px">${a.ar.title}</h4>
             <div class="meta">${yearText}</div>
-            <p style="margin:.35rem 0 0">${d}</p>
+            <p style="margin:.35rem 0 0">${a.ar.detail}</p>
           </div>`;
         ul.appendChild(li);
       });
     }
 
+    // ===== الدورات التدريبية وفق الترقيم (بدون أرقام في العرض) =====
+    // كل عنصر: {title, org}
+    const COURSES = [
+      {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻷﻣﻨﻴﺔ (اﻗﻠﻴﻤﻲ)", org:"—"},
+      {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻻﻣﻨﻴﺔ (وﻃﻨﻲ)", org:"منصة دروب"},
+      {title:"PMP – ادارة اﻟﻤﺸﺎرﻳﻊ", org:"—"},
+      {title:"شهادة الآيزو 9001:2015", org:"—"},
+      {title:"شهادة الآيزو 14001:2015", org:"—"},
+      {title:"شهادة الآيزو 45001:2018", org:"—"},
+      {title:"شهادة الآيزو 31000:2018", org:"—"},
+      {title:"(IBCT) تدريب المدربين", org:"المجلس الدولي للمدربين المعتمدين"},
+      {title:"الأمن والسلامة والصحة في المنشآت", org:"أكاديمية منشآت"},
+      {title:"OSHA السلامة والصحة المهنية بمعايير", org:"معهد ميثاق"},
+      {title:"تقييم المخاطر وإدارتها", org:"جامعة مالايا – منصة التعليم الإلكتروني"},
+      {title:"OSH مخاطر السلامة والصحة المهنية", org:"منصة التعليم الإلكتروني"},
+      {title:"السلامة العامة", org:"برنامج الأمم المتحدة – منصة التعليم الإلكتروني"},
+      {title:"السلامة والصحة المهنية", org:"المنظمة الدولية للسلامة الكيميائية"},
+      {title:"مكافحة الحرائق", org:"المنظمة الدولية للسلامة الكيميائية"},
+      {title:"مدرب أمن وسلامة معتمد", org:"المنظمة الدولية للسلامة الكيميائية"},
+      {title:"ضابط أمن معتمد", org:"شركة G4S"},
+      {title:"معايير الجودة والسلامة في الفعاليات الترفيهية", org:"منصة دروب"},
+      {title:"إدارة عمليات أنظمة السلامة (FMS) – مستوى", org:"أكاديمية وقاية"},
+      {title:"مقدمة في الصحة والسلامة المهنية", org:"أكاديمية وقاية"},
+      {title:"السلامة والصحة المهنية", org:"شركة STC"},
+      {title:"السلامة والصحة المهنية (إدارة الاتصالات الخطرة)", org:"منصة لينكدإن"},
+      {title:"التحقيق في الحوادث المهنية", org:"منصة Alison"},
+      {title:"مقدمة في القانون الجنائي", org:"منصة Alison"},
+      {title:"إعداد البيانات للاستكشاف", org:"Google"},
+      {title:"ممارسة القيادة", org:"جامعة هارفارد – منصة التعليم الإلكتروني"},
+      {title:"السلامة والصحة المهنية", org:"منصة معارف"},
+      {title:"أساسيات السلامة والصحة المهنية", org:"معهد تدرّب"},
+      {title:"تأثير الحرائق", org:"جامعة ماريلاند – منصة التعليم الإلكتروني"},
+      {title:"إدارة الأزمات", org:"جامعة الفيصل"},
+      {title:"إدارة المخاطر المتقدمة", org:"منصة دروب"},
+      {title:"قواعد البيانات العلائقية", org:"IBM"},
+      {title:"تطوير القيادات التطوعية", org:"ASSP"},
+      {title:"الإشراف والتنظيم الإداري", org:"معهد الاختيار الأمثل"},
+      {title:"معالجة نصوص وإدخال بيانات", org:"معهد نيوهورايزن"},
+      {title:"إدارة الفعاليات", org:"منصة دروب"},
+      {title:"Excel 2013", org:"—"},
+      {title:"إنشاء لوحة معلومات Excel", org:"منصة لينكدإن"},
+      {title:"التطبيقات المكتبية من حزمة أوفيس", org:"جامعة نجران"},
+      {title:"Microsoft Word", org:"منصة لينكدإن"},
+      {title:"Microsoft PowerPoint", org:"منصة لينكدإن"},
+      {title:"السلوك المسؤول للبحث", org:"جامعة يوتريخت – منصة التعليم الإلكتروني"},
+      {title:"مقدمة في إدارة الأعمال", org:"كلية لندن الجامعية – منصة التعليم الإلكتروني"},
+      {title:"السكرتارية التنفيذية", org:"منصة دروب"},
+      {title:"مكافحة العدوى", org:"الهلال الأحمر"},
+      {title:"القانون الدولي الإنساني", org:"الهلال الأحمر"},
+      {title:"إدارة الكوارث والأزمات", org:"الهلال الأحمر"},
+      {title:"الإسعافات الأولية", org:"الهلال الأحمر"},
+      {title:"الرخصة الدولية لقيادة الحاسب الآلي (ICDL)", org:"منصة إدراك"},
+      {title:"الأنظمة والقوانين", org:"منصة دروب"},
+      {title:"إدارة الأمن والسلامة في مواقع البناء", org:"منصة لينكدإن"},
+      {title:"أمن المنشآت", org:"منصة دروب"},
+      {title:"مكافحة العدوى من فيروس كورونا", org:"منصة دروب"},
+      {title:"الأمن والسلامة الشخصية", org:"DisasterReady"},
+      {title:"بيئات العمل المكتبية الصحية والآمنة", org:"أكاديمية وقاية"},
+      {title:"اكتشاف ريادة الأعمال", org:"سيسكو"},
+      {title:"السلامة في صناعة المرافق", org:"جامعة نيويورك – منصة التعليم الإلكتروني"},
+      {title:"أساسيات الحاسب الآلي", org:"منصة إدراك"}
+    ];
+
     function renderCourses(){
-      const box = el('coursesBox'); box.innerHTML='';
-      COURSES_RAW.forEach((title)=>{
+      const box = document.getElementById('coursesBox'); box.innerHTML='';
+      COURSES.forEach(c=>{
         const row = document.createElement('div'); row.className='course';
-        row.innerHTML = `<span class="dot" aria-hidden="true"></span>
-          <div><h4 class="course-title">${title}</h4></div>`;
+        row.innerHTML = `
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <h4 class="course-title">${c.title}</h4>
+            <div class="course-org">${c.org}</div>
+          </div>`;
         box.appendChild(row);
       });
     }
 
+    // ===== مهارات =====
     function renderSkills(){
-      const t = I18N[lang];
-      const grid = el('skillsGrid'); grid.innerHTML='';
+      const grid = document.getElementById('skillsGrid'); grid.innerHTML='';
       const data = [
-        { title: lang==='ar'?"إدارة أمن وسلامة":"Security & Safety Mgmt", meta: lang==='ar'?"خطط تشغيل، تقييم مخاطر، SOPs":"Ops plans, risk assessment, SOPs", chips:["SOPs","Risk","HSE"]},
-        { title: lang==='ar'?"تحليل البيانات وKPI":"Data Analytics & KPI", meta: lang==='ar'?"لوحات مؤشرات، خرائط حرارية":"Dashboards, heatmaps", chips:["Power BI","Excel","Vega"]},
-        { title: lang==='ar'?"التحول الرقمي":"Digital Transformation", meta: lang==='ar'?"نماذج وأتمتة وتكامل نظم":"Forms automation, integrations", chips:["Django","Flutter","GIS"]},
+        { title:"إدارة أمن وسلامة", meta:"خطط تشغيل، تقييم مخاطر، SOPs", chips:["SOPs","Risk","HSE"]},
+        { title:"تحليل البيانات وKPI", meta:"لوحات مؤشرات، خرائط حرارية", chips:["Power BI","Excel","Vega"]},
+        { title:"التحول الرقمي", meta:"نماذج وأتمتة وتكامل نظم", chips:["Django","Flutter","GIS"]},
       ];
       data.forEach(s=>{
         const card=document.createElement('div'); card.className='card';
@@ -424,78 +315,38 @@
       });
     }
 
-    function applyLang(){
-      setDir();
-      const t = I18N[lang];
+    // ===== تهيئة =====
+    document.getElementById('heroChips').innerHTML = ['Operations','Risk Management','KPI','GIS'].map(t=>`<span class="chip">${t}</span>`).join('');
+    document.getElementById('sideChips').innerHTML = ['Power BI','Django','Flutter','MapLibre/GIS'].map(t=>`<span class="chip">${t}</span>`).join('');
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      // header
-      el('brandTxt').textContent = (lang==='ar'?"شهاداتي وإنجازاتي":"Certificates & Achievements");
-      el('navAch').textContent  = (lang==='ar'?"الإنجازات":"Achievements");
-      el('navCourses').textContent = (lang==='ar'?"الدورات":"Courses");
-      el('navCV').textContent   = (lang==='ar'?"تحميل السيرة":"Download CV");
-      document.getElementById('langToggle').textContent = (lang==='ar'?'EN':'AR');
+    renderAchievements();
+    renderCourses();
+    renderSkills();
 
-      // hero
-      el('heroBadge').textContent = t.heroBadge;
-      el('heroTitle').innerHTML   = t.heroTitle(PROFILE);
-      el('heroLead').textContent  = t.heroLead;
-      el('profileImg').src        = PROFILE.photo;
-      renderChips('heroChips', t.heroChips);
-
-      // KPIs
-      el('kpi-years').textContent    = fmtNum(PROFILE.years);
-      el('kpi-certs').textContent    = fmtNum(PROFILE.certsCount)+'+';
-      el('kpi-projects').textContent = fmtNum(PROFILE.projectsCount);
-      el('kpiYearsLbl').textContent  = t.kpiYears;
-      el('kpiCertsLbl').textContent  = t.kpiCerts;
-      el('kpiProjectsLbl').textContent= t.kpiProjects;
-
-      // side card
-      el('sideTitle').textContent = t.sideTitle;
-      el('sideText').textContent  = t.sideText;
-      renderChips('sideChips', t.sideChips);
-
-      // achievements
-      el('achievementsTitle').textContent = t.achievementsTitle;
-      el('achievementsDesc').textContent  = t.achievementsDesc;
-      renderAchievements();
-
-      // courses
-      el('coursesTitle').textContent = t.coursesTitle;
-      el('coursesDesc').textContent  = t.coursesDesc;
-      renderCourses();
-
-      // skills
-      el('skillsTitle').textContent = t.skillsTitle;
-      el('skillsDesc').textContent  = t.skillsDesc;
-      renderSkills();
-
-      // contacts
-      const top = document.getElementById('contactTop'); top.innerHTML='';
-      const contacts = [
-        { type:"email", href:`mailto:${PROFILE.email}`, label: (lang==='ar'?'البريد':'Email') },
-        { type:"phone", href:`tel:+966571441777`, label:(lang==='ar'?'الهاتف':'Phone') },
-        { type:"whatsapp", href:`https://wa.me/966571441777`, label:(lang==='ar'?'واتساب':'WhatsApp') },
-        { type:"linkedin", href:PROFILE.linkedin, label:'LinkedIn' }
-      ];
-      contacts.forEach(item=>{
-        const li=document.createElement('li');
-        li.innerHTML = `<a class="iconbtn" href="${item.href}" target="_blank" rel="noopener" aria-label="${item.label}" title="${item.label}">${iconSvg(item.type)}</a>`;
-        top.appendChild(li);
-      });
-
-      // footer year
-      document.getElementById('year').textContent = new Date().getFullYear();
-    }
-
-    // Toggle language
+    // تبديل اللغة (واجهة عامة فقط، الدورات تبقى كما هي بالنص الأصلي)
+    let lang='ar';
     document.getElementById('langToggle').addEventListener('click', ()=>{
-      lang = (lang==='ar'?'en':'ar');
-      applyLang();
+      lang=(lang==='ar'?'en':'ar');
+      document.documentElement.dir=(lang==='ar'?'rtl':'ltr');
+      document.getElementById('langToggle').textContent=(lang==='ar'?'EN':'AR');
+      document.getElementById('brandTxt').textContent=(lang==='ar'?'شهاداتي وإنجازاتي':'Certificates & Achievements');
+      document.getElementById('navAch').textContent=(lang==='ar'?'الإنجازات':'Achievements');
+      document.getElementById('navCourses').textContent=(lang==='ar'?'الدورات':'Courses');
+      document.getElementById('navCV').textContent=(lang==='ar'?'تحميل السيرة':'Download CV');
+      document.getElementById('heroBadge').textContent=(lang==='ar'?'سيرة مهنية • أمن وسلامة':'Professional Profile • HSE & Security');
+      document.getElementById('heroTitle').innerHTML=(lang==='ar'?`مرحبًا، أنا <span class="accent">${PROFILE.name}</span>`:`Hi, I'm <span class="accent">${PROFILE.name}</span>`);
+      document.getElementById('heroLead').textContent=(lang==='ar'?'موقع يعرض إنجازاتي ودوراتي ومهاراتي بصورة احترافية وخفيفة للعرض.':'A concise, professional site showing achievements, courses, and skills.');
+      document.getElementById('kpiYearsLbl').textContent=(lang==='ar'?'سنوات خبرة':'Years Experience');
+      document.getElementById('kpiCertsLbl').textContent=(lang==='ar'?'شهادة وتدريب':'Certs & Trainings');
+      document.getElementById('kpiProjectsLbl').textContent=(lang==='ar'?'مشروع رئيسي':'Major Projects');
+      document.getElementById('achievementsTitle').textContent=(lang==='ar'?'الإنجازات البارزة':'Key Achievements');
+      document.getElementById('achievementsDesc').textContent=(lang==='ar'?'تايم لاين احترافي يوضح الأثر والنتائج.':'Impact-focused timeline of results.');
+      document.getElementById('coursesTitle').textContent=(lang==='ar'?'الدورات التدريبية والاعتمادات':'Courses & Certifications');
+      document.getElementById('coursesDesc').textContent=(lang==='ar'?'تم ترتيبها وفق الترقيم الذي زوّدتني به، وتُعرض هنا بدون أرقام.':'Ordered per your list and shown without numbers.');
+      document.getElementById('skillsTitle').textContent=(lang==='ar'?'المهارات والأدوات':'Skills & Tools');
+      document.getElementById('skillsDesc').textContent=(lang==='ar'?'مجالات الخبرة التقنية والعملية.':'Technical and operational expertise.');
     });
-
-    // init
-    applyLang();
   </script>
 </body>
 </html>
