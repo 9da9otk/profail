@@ -3,36 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>سعد السبيعي | الشهادات والإنجازات – ثنائي اللغة</title>
-  <meta name="description" content="موقع شخصي ثنائي اللغة لعرض الشهادات والإنجازات والخبرات المهنية لسعد السبيعي بطريقة احترافية وخفيفة." />
+  <title>سعد السبيعي | الشهادات والإنجازات</title>
+  <meta name="description" content="سعد السبيعي — موقع ثنائي اللغة لعرض الإنجازات والشهادات والخبرات المهنية في الأمن والسلامة وإدارة العمليات." />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Canonical & SEO -->
-  <link rel="canonical" href="./" />
-  <meta name="robots" content="index,follow" />
-
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="سعد السبيعي | الشهادات والإنجازات">
-  <meta property="og:description" content="ملف شخصي ثنائي اللغة يعرض الإنجازات والشهادات والمهارات مع معاينة للشهادات.">
+  <meta property="og:description" content="إنجازات وشهادات ومهارات — نسخة خفيفة ثنائية اللغة.">
   <meta property="og:image" content="cover.png">
   <meta property="og:locale" content="ar_SA">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SaaD AlsuBaie | Certificates & Achievements">
-  <meta name="twitter:description" content="Bilingual portfolio with achievements, certificates preview, and contact.">
+  <meta name="twitter:description" content="Bilingual portfolio with achievements, certifications, and contact icons on top.">
   <meta name="twitter:image" content="cover.png">
 
-  <!-- Favicon (monogram 'S') -->
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="url(%23g)"/><text x="50%" y="54%" text-anchor="middle" font-family="Verdana" font-size="36" fill="white">S</text></svg>' />
 
   <style>
     :root{
       --brand-primary:#0f172a;   /* Navy professional */
       --brand-primary-2:#0b1221; /* deeper navy */
-      --brand-accent:#06b6d4;    /* cyan accent */
-      --sand:#f6f7fb;            /* soft background */
+      --brand-accent:#06b6d4;    /* cyan */
+      --sand:#f6f7fb;
       --ink:#0a0a0a;
       --muted:#667085;
       --card:#ffffff;
@@ -54,9 +52,17 @@
     .brand__logo{width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg,var(--brand-primary),var(--brand-primary-2)); display:grid; place-items:center; color:#fff; font-weight:800}
     .brand__txt{font-weight:800; letter-spacing:.5px}
     .nav__cta{display:flex; gap:10px; align-items:center}
+
     .btn{border:0; cursor:pointer; padding:10px 16px; border-radius:12px; font-weight:700}
     .btn--ghost{background:#fff; border:1px solid #eee}
     .btn--accent{background:var(--brand-accent); color:#05202a}
+
+    /* Top contact icons */
+    .contact-top{display:flex; gap:10px; align-items:center; list-style:none; margin:0; padding:0}
+    .contact-top li{list-style:none}
+    .icon{width:20px; height:20px; display:inline-block}
+    .iconbtn{display:grid; place-items:center; width:40px; height:40px; border-radius:12px; background:#fff; border:1px solid #e6e6e6; box-shadow:var(--shadow); color:var(--brand-primary)}
+    .iconbtn:hover{transform:translateY(-1px); box-shadow:0 12px 24px rgba(2,6,23,.12)}
 
     /* Hero */
     .hero{position:relative; padding:56px 0 28px; overflow:hidden}
@@ -106,17 +112,11 @@
     /* Footer */
     footer{padding:28px 0 48px; border-top:1px solid #eee; background:#fff}
     .foot{display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap}
+    .foot .chips{display:none} /* تمت الإزالة حسب طلبك */
 
     /* Chips */
     .chips{display:flex; gap:8px; flex-wrap:wrap}
     .chip{background:#fff; border:1px solid #eee; border-radius:999px; padding:6px 10px; font-size:14px}
-
-    /* Contact Icons */
-    #contactList{display:flex; gap:12px; align-items:center; padding:8px 0; list-style:none}
-    #contactList li{list-style:none}
-    .icon{width:20px; height:20px; display:inline-block}
-    .iconbtn{display:grid; place-items:center; width:44px; height:44px; border-radius:12px; background:#fff; border:1px solid #eee; box-shadow:var(--shadow); color:var(--brand-primary)}
-    .iconbtn:hover{transform:translateY(-1px); box-shadow:0 12px 24px rgba(2,6,23,.12)}
 
     /* Utilities */
     .accent{color:var(--brand-accent)}
@@ -136,6 +136,8 @@
         <a id="navCert" href="#certificates" class="btn btn--ghost">الشهادات</a>
         <a id="navCV" href="cv.pdf" class="btn btn--accent" target="_blank" rel="noopener" download>تحميل السيرة</a>
         <button id="langToggle" class="btn btn--ghost" aria-label="Language">EN</button>
+        <!-- أيقونات التواصل في الأعلى -->
+        <ul id="contactTop" class="contact-top" aria-label="روابط تواصل"></ul>
       </nav>
     </div>
   </header>
@@ -156,7 +158,7 @@
           </div>
 
           <div class="kpis" aria-label="Key numbers">
-            <div class="kpi"><strong id="kpi-years">19</strong><span class="meta" id="kpiYearsLbl">سنوات خبرة</span></div>
+            <div class="kpi"><strong id="kpi-years">20</strong><span class="meta" id="kpiYearsLbl">سنوات خبرة</span></div>
             <div class="kpi"><strong id="kpi-certs">60+</strong><span class="meta" id="kpiCertsLbl">شهادة وتدريب</span></div>
             <div class="kpi"><strong id="kpi-projects">30</strong><span class="meta" id="kpiProjectsLbl">مشروع رئيسي</span></div>
           </div>
@@ -165,7 +167,7 @@
         <aside>
           <div class="hero__card">
             <div class="section__head" style="margin:0 0 6px"><h3 class="section__title" id="sideTitle" style="font-size:18px">نبذة سريعة</h3></div>
-            <p id="sideText" style="margin:0 0 8px">مدير مناوب لمشروع الأمن والحركة المرورية في الدرعية...</p>
+            <p id="sideText" style="margin:0 0 8px">مدير مناوب لمشروع الأمن والحركة المرورية في الدرعية، وDuty Manager في stc (الشركة الوطنية للخدمات الأمنية – سيف)، مع خبرة واسعة في إدارة الأمن والسلامة والتحول الرقمي ولوحات المؤشرات.</p>
             <div class="chips" id="sideChips"></div>
           </div>
         </aside>
@@ -205,15 +207,10 @@
       </div>
     </section>
 
-    <!-- CONTACT / CTA -->
+    <!-- CONTACT / CV ONLY (الأيقونات انتقلت للأعلى) -->
     <section id="contact">
       <div class="container">
         <div class="grid grid--2">
-          <div class="card"><div class="card__body">
-            <h3 class="card__title" id="contactTitle">معلومات التواصل</h3>
-            <p class="meta" id="contactHint">انقر على الأيقونات للتواصل مباشرة.</p>
-            <ul id="contactList"></ul>
-          </div></div>
           <div class="card"><div class="card__body">
             <h3 class="card__title" id="cvTitle">ملف السيرة الذاتية</h3>
             <p class="meta" id="cvHint">أضف رابطًا لملف PDF الخاص بسيرتك الذاتية.</p>
@@ -227,45 +224,30 @@
   <footer>
     <div class="container foot">
       <small id="copyright">© 2025 جميع الحقوق محفوظة • موقع شخصي</small>
-      <div class="chips">
-        <span class="chip" id="f1">نسخة خفيفة وسريعة</span>
-        <span class="chip" id="f2">تصميم متجاوب</span>
-        <span class="chip" id="f3">جاهز للنشر</span>
-      </div>
+      <div class="chips"></div>
     </div>
   </footer>
 
-  <!-- Modal for certificate preview -->
-  <div class="modal" id="modal">
-    <div class="modal__box">
-      <div class="modal__head">
-        <strong id="modalTitle">Preview</strong>
-        <button class="close" id="closeModal">Close</button>
-      </div>
-      <div class="modal__body"><img id="modalImg" alt="certificate preview" loading="lazy"></div>
-    </div>
-  </div>
-
   <script>
-    // ===== البيانات =====
+    // ===== البيانات من السيرة =====
     const PROFILE = {
       name: "سعد السبيعي",
-      years: 19,
+      years: 20,
       certsCount: 60,
       projectsCount: 30,
       email: "sa888e@gmail.com",
       phone: "0571441777",
       linkedin: "https://www.linkedin.com/in/s3dsu",
-      photo: "profile.jpg" // يجب أن يكون بجانب index.html
+      photo: "profile.jpg" // ضع الصورة بجانب index.html
     };
 
     // الأرقام دائمًا إنجليزية
     const fmtNum = (n) => Number(n).toLocaleString('en-US');
 
-    // تحويل سنة ميلادية إلى هجرية (سنة فقط) باستخدام تقويم أم القرى
+    // تقويم هجري (سنة فقط)
     const hijriYearFromGregorianYear = (gy) => {
       try {
-        const date = new Date(gy, 5, 30); // منتصف السنة
+        const date = new Date(gy, 5, 30);
         const fmt = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura', { year:'numeric' });
         return fmt.format(date); // مثال: 1447
       } catch { return ""; }
@@ -278,12 +260,12 @@
         nav: { ach: "الإنجازات", cert: "الشهادات", cv: "تحميل السيرة" },
         heroBadge: "سيرة مهنية • أمن وسلامة",
         heroTitle: (p)=>`مرحبًا، أنا <span class="accent">${p.name}</span> — مدير مناوب وقائد عمليات أمن وسلامة بخبرة تتجاوز <strong>${fmtNum(p.years)}+ سنة</strong>.`,
-        heroLead: "هذا الموقع يعرض إنجازاتي وشهاداتي وروابط الأعمال والتوصيات. واجهة احترافية وخفيفة للعرض في السيرة الذاتية والمراسلات.",
+        heroLead: "هذا الموقع يعرض إنجازاتي وشهاداتي وروابط الأعمال والتوصيات. واجهة احترافية وخفيفة للعرض في السيرة الذاتية.",
         heroChips: ["إدارة العمليات","السلامة وإدارة المخاطر","لوحات مؤشرات KPI","GIS & Power BI"],
         kpiYears: "سنوات خبرة", kpiCerts: "شهادة وتدريب", kpiProjects: "مشروع رئيسي",
         sideTitle: "نبذة سريعة",
-        sideText: "مدير مناوب لمشروع الأمن والحركة المرورية في الدرعية، عضو في جمعيات مهنية، ومطور حلول رقمية لرفع كفاءة التقارير والتشغيل.",
-        sideChips: ["Power BI","Django","Flutter","MapLibre / GIS"],
+        sideText: "Duty Manager في stc (الشركة الوطنية للخدمات الأمنية — سيف)، تطوير لوحات مؤشرات وتحول رقمي، وخبرة تشغيلية في إدارة الحشود والفعاليات.",
+        sideChips: ["Power BI","Microsoft Office","Photoshop","Security Systems"],
         achievementsTitle: "الإنجازات البارزة",
         achievementsDesc: "ملخص لأهم الإنجازات المرتبطة بالنتائج والأثر.",
         certificatesTitle: "الشهادات والدورات",
@@ -292,16 +274,14 @@
         skillsDesc: "مجالات الخبرة التقنية والعملية.",
         skills: [
           { title: "إدارة أمن وسلامة", meta: "خطط تشغيل، تقييم مخاطر، استجابة للحوادث، تدريب فرق.", chips:["SOPs","Risk","HSE"]},
-          { title: "تحليل البيانات ولوحات التحكم", meta: "مقاييس الأداء، مؤشرات، خرائط حرارية، مصادر متعددة.", chips:["Power BI","Excel","Vega"]},
-          { title: "التحول الرقمي", meta: "تطبيقات داخلية، أتمتة النماذج، تكامل قواعد البيانات.", chips:["Django","Flutter","Supabase"]},
+          { title: "تحليل البيانات ولوحات التحكم", meta: "مقاييس الأداء، مؤشرات، خرائط حرارية.", chips:["Power BI","Excel","Vega"]},
+          { title: "تحول رقمي وأتمتة", meta: "نماذج رقمية وتقارير PDF وتكامل نظم أمنية.", chips:["Django","Flutter","Systems"]},
         ],
-        contactTitle: "معلومات التواصل",
-        contactHint: "انقر على الأيقونات للتواصل مباشرة.",
         contactList: [
-          { type: "email",    label: "البريد",   value: PROFILE.email,  href: `mailto:${PROFILE.email}`},
-          { type: "phone",    label: "الهاتف",   value: PROFILE.phone,  href: `tel:+966571441777`},
-          { type: "whatsapp", label: "واتساب",   value: "+966 57 144 1777", href: `https://wa.me/966571441777`},
-          { type: "linkedin", label: "لينكدإن",  value: "linkedin.com/in/s3dsu", href: PROFILE.linkedin },
+          { type: "email",    label: "البريد",   href: `mailto:${PROFILE.email}`},
+          { type: "phone",    label: "الهاتف",   href: `tel:+966571441777`},
+          { type: "whatsapp", label: "واتساب",   href: `https://wa.me/966571441777`},
+          { type: "linkedin", label: "لينكدإن",  href: PROFILE.linkedin },
         ],
         cvTitle: "ملف السيرة الذاتية",
         cvHint: "أضف رابطًا لملف PDF الخاص بسيرتك الذاتية.",
@@ -311,7 +291,7 @@
         certOpen: "فتح الصورة",
         footer: {
           copy: ()=>`© ${new Date().getFullYear()} جميع الحقوق محفوظة • موقع شخصي`,
-          chips: ["نسخة خفيفة وسريعة","تصميم متجاوب","جاهز للنشر"],
+          chips: [],
         },
       },
       en: {
@@ -319,12 +299,12 @@
         nav: { ach: "Achievements", cert: "Certificates", cv: "Download CV" },
         heroBadge: "Professional Profile • HSE & Security",
         heroTitle: (p)=>`Hi, I'm <span class="accent">${p.name}</span> — Duty Manager & Operations Lead with <strong>${fmtNum(p.years)}+ years</strong> in Security & Safety.`,
-        heroLead: "This site showcases my achievements, certifications, and work samples. A fast, professional landing page for CVs and outreach.",
+        heroLead: "A fast, bilingual site showcasing achievements, certifications, and skills.",
         heroChips: ["Operations Management","Safety & Risk","KPI Dashboards","GIS & Power BI"],
         kpiYears: "Years Experience", kpiCerts: "Certs & Trainings", kpiProjects: "Major Projects",
         sideTitle: "Quick Bio",
-        sideText: "Duty Manager for the Diriyah Security & Traffic project; active in professional associations and building digital tools to boost operational reporting.",
-        sideChips: ["Power BI","Django","Flutter","MapLibre / GIS"],
+        sideText: "Duty Manager at stc (National Security Services Company – Saif). Building dashboards and digital workflows with hands-on field leadership.",
+        sideChips: ["Power BI","Microsoft Office","Photoshop","Security Systems"],
         achievementsTitle: "Key Achievements",
         achievementsDesc: "Impact-driven highlights with measurable results.",
         certificatesTitle: "Certificates & Courses",
@@ -333,16 +313,14 @@
         skillsDesc: "Domains of technical and operational expertise.",
         skills: [
           { title: "Security & Safety Mgmt", meta: "Ops plans, risk assessment, incident response, team training.", chips:["SOPs","Risk","HSE"]},
-          { title: "Data Analytics & Dashboards", meta: "KPIs, indicators, heatmaps, multi-source data.", chips:["Power BI","Excel","Vega"]},
-          { title: "Digital Transformation", meta: "Internal apps, form automation, DB integrations.", chips:["Django","Flutter","Supabase"]},
+          { title: "Data Analytics & Dashboards", meta: "KPIs, indicators, heatmaps.", chips:["Power BI","Excel","Vega"]},
+          { title: "Digital Transformation", meta: "Forms, PDFs, security systems integration.", chips:["Django","Flutter","Systems"]},
         ],
-        contactTitle: "Contact Info",
-        contactHint: "Click the icons to contact directly.",
         contactList: [
-          { type: "email",    label: "Email",    value: PROFILE.email,  href: `mailto:${PROFILE.email}`},
-          { type: "phone",    label: "Phone",    value: PROFILE.phone,  href: `tel:+966571441777`},
-          { type: "whatsapp", label: "WhatsApp", value: "+966 57 144 1777", href: `https://wa.me/966571441777`},
-          { type: "linkedin", label: "LinkedIn", value: "linkedin.com/in/s3dsu", href: PROFILE.linkedin },
+          { type: "email",    label: "Email",    href: `mailto:${PROFILE.email}`},
+          { type: "phone",    label: "Phone",    href: `tel:+966571441777`},
+          { type: "whatsapp", label: "WhatsApp", href: `https://wa.me/966571441777`},
+          { type: "linkedin", label: "LinkedIn", href: PROFILE.linkedin },
         ],
         cvTitle: "Curriculum Vitae",
         cvHint: "Add the public link to your PDF CV.",
@@ -352,53 +330,40 @@
         certOpen: "Open Image",
         footer: {
           copy: ()=>`© ${new Date().getFullYear()} All rights reserved • Personal site`,
-          chips: ["Fast & lightweight","Responsive design","Launch-ready"],
+          chips: [],
         },
       }
     };
 
-    // إنجازات وشهادات
     const ACHIEVEMENTS = [
-      { ar:{title:"نجاح خطة اليوم الوطني 2025 – الدرعية", detail:"تنسيق الأمن والحركة مع الجهات الشريكة وتفعيل غرفة العمليات ولوحات مباشرة، ما خفّض زمن الاستجابة وضمن انسيابية الحركة."},
-        en:{title:"Saudi National Day 2025 – Diriyah", detail:"Coordinated security & traffic ops with partners; live ops room & dashboards reduced response time and kept flow smooth."},
+      { ar:{title:"نجاح خطة اليوم الوطني — الدرعية", detail:"تنسيق الأمن والحركة مع الشركاء وتفعيل غرفة عمليات ولوحات مباشرة، خفّض زمن الاستجابة وضمن انسيابية الحركة."},
+        en:{title:"Saudi National Day – Diriyah", detail:"Coordinated security & traffic ops with partners; live dashboards reduced response time and kept flow smooth."},
         year: 2025 },
-      { ar:{title:"لوحة مؤشرات تشغيلية موحّدة (KPI Dashboard)", detail:"ربط مصادر (الحوادث، المرور، الصيانة) وتفعيل فلاتر تفاعلية وتقارير تلقائية؛ تقليل زمن إعداد التقرير اليومي بنسبة 60٪."},
-        en:{title:"Unified KPI Dashboard", detail:"Integrated incidents/traffic/maintenance data with interactive filters & auto reports; cut daily report prep time by 60%."},
+      { ar:{title:"لوحة مؤشرات تشغيلية موحّدة (KPI)", detail:"تكامل مصادر (بلاغات/مرور/صيانة) وفلاتر تفاعلية وتقارير تلقائية؛ تقليل زمن إعداد التقرير اليومي 60٪."},
+        en:{title:"Unified KPI Dashboard", detail:"Integrated incidents/traffic/maintenance with interactive filters & auto reports; 60% faster daily reporting."},
         year: 2024 },
-      { ar:{title:"تطوير SOPs لإدارة الحشود والفعاليات", detail:"صياغة إجراءات تشغيل قياسية، وجداول توزيع الأفراد، ومسارات تدخل سريع متوافقة مع أفضل الممارسات."},
-        en:{title:"Crowd & Events SOPs", detail:"Standardized procedures, staffing rosters, and rapid-response routes aligned with best practices."},
-        year: 2023 },
-      { ar:{title:"أتمتة تقارير نهاية الوردية", detail:"نماذج رقمية وتوليد PDF تلقائيًّا، وتوحيد قوالب البلاغات والملخص اليومي."},
-        en:{title:"Shift-End Report Automation", detail:"Digital forms, auto-generated PDFs, and unified incident/daily summary templates."},
-        year: 2022 },
     ];
 
     const CERTIFICATES = [
-      { ar:{title:"إدارة المخاطر المهنية", org:"مركز تدريب معتمد"}, en:{title:"Occupational Risk Management", org:"Accredited Training Center"}, year:"2024", img:"https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=1200&auto=format&fit=crop" },
-      { ar:{title:"التحقيق في الحوادث", org:"مركز تدريب"},          en:{title:"Incident Investigation", org:"Training Center"},            year:"2023", img:"https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" },
-      { ar:{title:"الإسعافات الأولية والإنعاش القلبي الرئوي", org:"جهة مانحة"}, en:{title:"First Aid & CPR", org:"Provider"},         year:"2023", img:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" },
-      { ar:{title:"قيادة فرق الأمن في الفعاليات", org:"مؤسسة تدريب"}, en:{title:"Leading Security Teams in Events", org:"Training Institute"}, year:"2022", img:"https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1200&auto=format&fit=crop" },
-      { ar:{title:"Power BI متقدم", org:"منصة تدريب"},            en:{title:"Power BI Advanced", org:"Training Platform"},             year:"2022", img:"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" },
+      { ar:{title:"Power BI متقدم", org:"منصة تدريب"}, en:{title:"Power BI Advanced", org:"Training Platform"}, year:"2022", img:"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" },
+      { ar:{title:"إدارة المخاطر المهنية", org:"جهة معتمدة"}, en:{title:"Occupational Risk Mgmt", org:"Accredited"}, year:"2024", img:"https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=1200&auto=format&fit=crop" },
     ];
 
-    // ===== أدوات DOM =====
+    // Helpers
     const el = (id) => document.getElementById(id);
-    let lang = 'ar';
     const setDir = () => { document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; };
-
-    function iconSvg(type){
-      if(type==='email') return '<svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5"/></svg>';
-      if(type==='phone') return '<svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M6 2h4l2 5-3 2a14 14 0 006 6l2-3 5 2v4c0 1.1-.9 2-2 2A16 16 0 012 8c0-1.1.9-2 2-2h2z" stroke="currentColor" stroke-width="1.5"/></svg>';
-      if(type==='whatsapp') return '<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A10 10 0 006.1 19.2L3 21l1.8-3a10 10 0 1015.7-14.5z"/></svg>';
+    const iconSvg = (type)=>{
+      if(type==='email') return '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>';
+      if(type==='phone') return '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.61a2 2 0 0 1-.45 2.11L8 9a16 16 0 0 0 7 7l.56-1.28a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.61.62A2 2 0 0 1 22 16.92z"/></svg>';
+      if(type==='whatsapp') return '<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11 11 0 0 0 3.49 20.5L2 22l1.7-.45A11 11 0 1 0 20.52 3.48zm-3.6 13.1c-.18.53-1.04 1-1.45 1.02-.37.02-.84.03-1.35-.08a9.2 9.2 0 0 1-4.06-2.44 10.24 10.24 0 0 1-2.32-3.4c-.47-1.1-.1-1.86.07-2.14.18-.29.4-.45.67-.46l.51-.01c.16 0 .36.01.56.43.21.43.72 1.75.79 1.88.06.13.1.28.02.45-.08.17-.12.27-.25.42-.13.15-.26.33-.37.45-.12.12-.25.25-.11.5.14.25.64 1.06 1.38 1.72.95.84 1.74 1.1 2 .1.25-.99.91-.83 1.54-.67.39.1 1.24.58 1.46.71.22.13.37.2.43.32.06.12.06.68-.12 1.21z"/></svg>';
       if(type==='linkedin') return '<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 105 8.5 2.5 2.5 0 004.98 3.5zM3 9h4v12H3zM10 9h4v2h.1a4.4 4.4 0 014-2.2c4.3 0 5.1 2.8 5.1 6.5V21h-4v-5c0-1.2 0-2.8-1.8-2.8s-2.1 1.3-2.1 2.7V21h-4z"/></svg>';
       return '';
-    }
+    };
 
     function renderChips(targetId, items){
       const box = el(targetId); box.innerHTML = '';
       items.forEach(t=>{ const s = document.createElement('span'); s.className='chip'; s.textContent=t; box.appendChild(s); });
     }
-
     function renderSkills(list){
       const grid = el('skillsGrid'); grid.innerHTML = '';
       list.forEach(s=>{
@@ -408,7 +373,6 @@
         grid.appendChild(card);
       });
     }
-
     function renderAchievements(){
       const ul = el('achievementsList'); ul.innerHTML='';
       ACHIEVEMENTS.forEach(a=>{
@@ -419,7 +383,6 @@
         ul.appendChild(li);
       });
     }
-
     function renderCertificates(){
       const box = el('certsBox'); box.innerHTML='';
       CERTIFICATES.forEach(c=>{
@@ -431,7 +394,7 @@
             <h4 class="cert__title">${t}</h4>
             <div class="meta">${org} • ${fmtNum(c.year)}</div>
             <div style="margin-top:6px; display:flex; gap:8px; flex-wrap:wrap">
-              <button class="btn btn--ghost" data-preview>${I18N[lang].certPreview}</button>
+              <a class="btn btn--ghost" href="${c.img}" target="_blank" rel="noopener">${I18N[lang].certPreview}</a>
               <a class="btn btn--accent" href="${c.img}" target="_blank" rel="noopener">${I18N[lang].certOpen}</a>
             </div>
           </div>`;
@@ -439,7 +402,8 @@
       });
     }
 
-    function applyLang(){
+    let lang = 'ar';
+    const applyLang = ()=>{
       setDir();
       const t = I18N[lang];
 
@@ -465,12 +429,12 @@
       el('kpiCertsLbl').textContent = t.kpiCerts;
       el('kpiProjectsLbl').textContent = t.kpiProjects;
 
-      // Side card
+      // Side
       el('sideTitle').textContent = t.sideTitle;
       el('sideText').textContent = t.sideText;
       renderChips('sideChips', t.sideChips);
 
-      // Achievements & Certificates & Skills
+      // Sections
       el('achievementsTitle').textContent = t.achievementsTitle;
       el('achievementsDesc').textContent = t.achievementsDesc;
       renderAchievements();
@@ -483,64 +447,27 @@
       el('skillsDesc').textContent = t.skillsDesc;
       renderSkills(t.skills);
 
-      // Contact + CV
-      el('contactTitle').textContent = t.contactTitle;
-      el('contactHint').textContent = t.contactHint;
-      const list = el('contactList'); list.innerHTML = '';
+      // Contact icons at top
+      const top = el('contactTop'); top.innerHTML='';
       t.contactList.forEach(item=>{
         const li = document.createElement('li');
         const icon = iconSvg(item.type);
-        if(item.href){
-          li.innerHTML = `<a class="iconbtn" href="${item.href}" target="_blank" rel="noopener" aria-label="${item.label}" title="${item.label}">${icon}</a>`;
-        } else {
-          li.innerHTML = `<span class="iconbtn" aria-label="${item.label}" title="${item.label}">${icon}</span>`;
-        }
-        list.appendChild(li);
+        li.innerHTML = `<a class="iconbtn" href="${item.href}" target="_blank" rel="noopener" aria-label="${item.label}" title="${item.label}">${icon}</a>`;
+        top.appendChild(li);
       });
 
-      el('cvTitle').textContent = t.cvTitle;
-      el('cvHint').textContent = t.cvHint;
-      el('cvBtn').textContent = t.cvBtn;
-
       // Footer
-      el('closeModal').textContent = t.modalClose;
-      const f = t.footer; 
-      document.querySelector('#f1').textContent = f.chips[0];
-      document.querySelector('#f2').textContent = f.chips[1];
-      document.querySelector('#f3').textContent = f.chips[2];
-      document.querySelector('footer small').textContent = f.copy();
-    }
+      document.querySelector('footer small').textContent = t.footer.copy();
+    };
 
-    // ===== تشغيل آمن بعد تحميل الـDOM =====
-    document.addEventListener('DOMContentLoaded', () => {
-      try {
+    document.addEventListener('DOMContentLoaded', ()=>{
+      try{
         applyLang();
         document.getElementById('langToggle').addEventListener('click', ()=>{
           lang = (lang === 'ar' ? 'en' : 'ar');
           applyLang();
         });
-
-        // Modal Preview
-        const modal = document.getElementById('modal');
-        const modalImg = document.getElementById('modalImg');
-        const modalTitle = document.getElementById('modalTitle');
-        const closeModal = document.getElementById('closeModal');
-
-        document.addEventListener('click', (e)=>{
-          if(e.target.matches('[data-preview]')){
-            const parent = e.target.closest('.cert');
-            const img = parent.querySelector('img');
-            const title = parent.querySelector('.cert__title').textContent;
-            modalImg.src = img.src; 
-            modalTitle.textContent = title; 
-            modal.style.display='grid';
-          }
-          if(e.target === modal){ modal.style.display='none'; }
-        });
-        closeModal.addEventListener('click', ()=> modal.style.display='none');
-      } catch(err){
-        console.error('Init error:', err);
-      }
+      }catch(err){ console.error(err); }
     });
   </script>
 </body>
