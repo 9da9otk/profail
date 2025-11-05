@@ -4,11 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>سعد السبيعي | الإنجازات والدورات – ثنائي اللغة</title>
-  <meta name="description" content="موقع شخصي ثنائي اللغة يعرض الإنجازات والدورات والمهارات بصورة احترافية." />
+  <meta name="description" content="موقع شخصي ثنائي اللغة لعرض الإنجازات والدورات والمهارات بصورة احترافية." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="url(%23g)"/><text x="50%" y="54%" text-anchor="middle" font-family="Verdana" font-size="36" fill="white">S</text></svg>' />
 
   <style>
@@ -28,7 +27,7 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; background:linear-gradient(180deg,var(--sand),#ffffff 40%); color:var(--ink); font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.7; overflow-x:hidden}
+    body{margin:0; background:linear-gradient(180deg,var(--sand),#ffffff 40%); color:var(--ink); font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.7; overflow-x:hidden}
     a{color:var(--brand-accent); text-decoration:none}
     img{max-width:100%; display:block}
     .container{width:100%; max-width:var(--max); margin-inline:auto; padding:0 20px}
@@ -114,7 +113,6 @@
     .foot{display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap}
     .chips{display:flex; gap:8px; flex-wrap:wrap}
     .chip{background:#fff; border:1px solid #eee; border-radius:999px; padding:6px 10px; font-size:14px}
-
     .accent{color:var(--brand-accent)}
     .surface{background:#fff; border-radius:var(--radius); border:1px solid #eee; box-shadow:var(--shadow)}
   </style>
@@ -175,12 +173,12 @@
       </div>
     </section>
 
-    <!-- COURSES -->
+    <!-- COURSES (EXACT LIST) -->
     <section id="courses">
       <div class="container">
         <div class="section__head">
           <h2 class="section__title" id="coursesTitle">الدورات التدريبية والاعتمادات</h2>
-          <p class="section__desc" id="coursesDesc">قائمة مختصرة بدون استعراض الشهادات.</p>
+          <p class="section__desc" id="coursesDesc">نصوص الدورات كما هي وبنفس الترتيب.</p>
         </div>
         <div class="surface" style="padding:10px 16px" id="coursesBox"></div>
       </div>
@@ -200,7 +198,7 @@
 
   <footer>
     <div class="container foot">
-      <small id="copyright">© 2025 جميع الحقوق محفوظة • موقع شخصي</small>
+      <small id="copyright">© <span id="year"></span> جميع الحقوق محفوظة • موقع شخصي</small>
       <div class="chips">
         <span class="chip">Fast & Lightweight</span>
         <span class="chip">Responsive</span>
@@ -210,7 +208,7 @@
   </footer>
 
   <script>
-    // ملف شخصي + أيقونات
+    // ===== الملف الشخصي وأيقونات التواصل =====
     const PROFILE = {
       name: "سعد السبيعي",
       years: 20, certsCount: 60, projectsCount: 30,
@@ -218,8 +216,6 @@
       linkedin: "https://www.linkedin.com/in/s3dsu",
       photo: "profile.jpg"
     };
-
-    // أيقونات احترافية
     function iconSvg(type){
       if(type==='email') return '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>';
       if(type==='phone') return '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.61a2 2 0 0 1-.45 2.11L8 9a16 16 0 0 0 7 7l.56-1.28a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.61.62A2 2 0 0 1 22 16.92z"/></svg>';
@@ -228,7 +224,7 @@
       return '';
     }
 
-    // بيانات ثنائية اللغة
+    // ===== واجهة ثنائية اللغة (العناصر العامة فقط؛ قائمة الدورات تبقى كما هي) =====
     const I18N = {
       ar:{
         heroBadge:"سيرة مهنية • أمن وسلامة",
@@ -237,20 +233,14 @@
         heroChips:["إدارة العمليات","إدارة المخاطر","لوحات كفاءة KPI","GIS & Power BI"],
         kpiYears:"سنوات خبرة", kpiCerts:"شهادة وتدريب", kpiProjects:"مشروع رئيسي",
         sideTitle:"نبذة سريعة",
-        sideText:"Duty Manager للأمن والحركة المرورية؛ بناء لوحات مؤشرات وأتمتة تقارير وتحسين الاستجابة.",
+        sideText:"Duty Manager للأمن والحركة المرورية؛ لوحات مؤشرات، أتمتة تقارير، وتحسين الاستجابة.",
         sideChips:["Power BI","Django","Flutter","MapLibre / GIS"],
         achievementsTitle:"الإنجازات البارزة",
         achievementsDesc:"ملخص للأثر والنتائج ضمن تايم لاين.",
         coursesTitle:"الدورات التدريبية والاعتمادات",
-        coursesDesc:"قائمة مختصرة بدون استعراض الشهادات.",
+        coursesDesc:"نصوص الدورات كما هي وبنفس الترتيب.",
         skillsTitle:"المهارات والأدوات",
-        skillsDesc:"مجالات الخبرة التقنية والعملية.",
-        contactList:[
-          { type:"email", label:"البريد",   href:`mailto:${PROFILE.email}` },
-          { type:"phone", label:"الهاتف",   href:`tel:+966571441777` },
-          { type:"whatsapp", label:"واتساب", href:`https://wa.me/966571441777` },
-          { type:"linkedin", label:"لينكدإن", href:PROFILE.linkedin }
-        ],
+        skillsDesc:"مجالات الخبرة التقنية والعملية."
       },
       en:{
         heroBadge:"Professional Profile • HSE & Security",
@@ -264,15 +254,9 @@
         achievementsTitle:"Key Achievements",
         achievementsDesc:"Impact-focused highlights on a timeline.",
         coursesTitle:"Courses & Certifications",
-        coursesDesc:"Concise list without certificate previews.",
+        coursesDesc:"Course titles kept verbatim and in order.",
         skillsTitle:"Skills & Tools",
-        skillsDesc:"Technical and operational expertise.",
-        contactList:[
-          { type:"email", label:"Email", href:`mailto:${PROFILE.email}` },
-          { type:"phone", label:"Phone", href:`tel:+966571441777` },
-          { type:"whatsapp", label:"WhatsApp", href:`https://wa.me/966571441777` },
-          { type:"linkedin", label:"LinkedIn", href:PROFILE.linkedin }
-        ],
+        skillsDesc:"Technical and operational expertise."
       }
     };
 
@@ -296,73 +280,96 @@
         en:{title:"Automated Shift-End Reports", detail:"Digital forms with auto-generated PDFs and unified summaries."}, year:2022 }
     ];
 
-    // الدورات (أسماء مستخلصة من الصورة المرفقة – صياغة مختصرة)
-    const COURSES_AR = [
-      "اختصاصي إدارة المخاطر الأمنية (إقليمي)",
-      "اختصاصي إدارة المخاطر الأمنية (وطني)",
-      "إدارة المشاريع – PMP (منصة دروب)",
-      "شهادة إنذار الحريق",
-      "شهادة الإخلاء",
-      "شهادة الإسعافات الأولية",
-      "شهادة الإنعاش القلبي الرئوي",
-      "تدريب المدربين IBCT (المجلس الدولي للمدربين المعتمدين)",
-      "الدعم والمساندة والصحة في المنشآت (أكاديمية منشآت)",
-      "السلامة والصحة المهنية – OSHA",
-      "تقييم المخاطر الوظيفية",
-      "مخاطر السلامة والصحة المهنية – جامعة دالاريا (التعليم الإلكتروني)",
-      "أنظمة السلامة التابعة للأمم المتحدة UN-DSS",
-      "مكافحة الحرائق – المنظمة الدولية للسلامة الكيميائية",
-      "مدرب أمن وسلامة معتمد – المنطقة الدولية للسلامة الكيميائية",
-      "مشرف أمن وسلامة في الفعاليات والمناسبات",
-      "إدارة عمليات أنظمة السلامة – المستوى الأول (FMS)",
-      "منهجية الصحة والسلامة المهنية – أكاديمية وقاية",
-      "السلامة والصحة المهنية – STC",
-      "الصحة والأمن والسلامة (نقاط الخطر)",
-      "التحقيق في الحوادث",
-      "الإسعافات الأولية – جامعة عليسون Alison",
-      "التعامل مع المواد الكيميائية – Alison",
-      "نظام إدارة الصحة والسلامة المهنية",
-      "أمن المعلومات الأساسي – Google",
-      "أساسيات الأمن السيبراني",
-      "إدارة المخاطر المتقدمة",
-      "قواعد البيانات التحليلية – IBM",
-      "ASP – أساسيات",
-      "تطوير النظم الأمنية",
-      "إدارة التغيير التنظيمي",
-      "محاكاة الحوادث الوظيفية",
-      "إدارة المخاطر المؤسسية",
-      "إدارة الجودة الشاملة",
-      "إنشاء وعمل تقارير احترافية",
-      "تحليل نصوص وتقارير",
-      "إدارة العملاء والشكاوى",
-      "تصميم نماذج وتقارير",
-      "مهارات الإشراف والقيادة",
-      "الذكاء الاصطناعي في مواقع العمل",
-      "مهارات العرض التقديمي",
-      "مايكروسوفت وورد – متقدم",
-      "باوربوينت – متقدم",
-      "إكسل – متقدم",
-      "القيادة للمسؤول الأمني",
-      "أخلاقيات العمل الأمني",
-      "التسكيرات الوقائية",
-      "القانون الدولي الإنساني – الهلال الأحمر",
-      "التعامل مع الحوادث والإنقاذ – الهلال الأحمر",
-      "الإطفائيات الأولى",
-      "الرخصة الدولية لقيادة الحاسب ICDL",
-      "التوثيق والملفات",
-      "المراسلات الإدارية",
-      "فن المخاطبات الرسمية",
-      "المنظمات غير الربحية – مفاهيم",
-      "السلامة من عدوى كوفيد-19",
-      "الصحة النفسية المهنية",
-      "السلامة السكنية المنزلية",
-      "أمن وسلامة الأعمال",
-      "السياسات الحاسوبية"
+    // قائمة الدورات — كما هي وبالترتيب
+    const COURSES_RAW = [
+"1.اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻷﻣﻨﻴﺔ (اﻗﻠﻴﻤﻲ)",
+"2.اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻻﻣﻨﻴﺔ (وﻃﻨﻲ)",
+"- ﻣﻨﺼﺔ دروب",
+"PMP",
+"ادارة اﻟﻤﺸﺎرﻳﻊ.3",
+"2015-90001",
+"ﺷﻬﺎدة اﻵﻳﺰو.4",
+"2015-14001",
+"ﺷﻬﺎدة اﻵﻳﺰو.5",
+"2018-45001",
+"ﺷﻬﺎدة اﻵﻳﺰو.6",
+"2018-31000",
+"ﺷﻬﺎدة اﻵﻳﺰو.7",
+"(IBCT)",
+"ﺗﺪرﻳﺐ اﻟﻤﺪرﺑﻴﻦ - اﻟﻤﺠﻠﺲ اﻟﺪوﻟﻲ ﻟﻠﻤﺪرﺑﻴﻦ اﻟﻤﻌﺘﻤﺪﻳﻦ.8",
+"اﻻﻣﻦ واﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ ﻓﻲ اﻟﻤﻨﺸﺂت - اﻛﺎدﻳﻤﻴﺔ ﻣﻨﺸﺂت.9",
+"- ﻣﻌﻬﺪ ﻣﻴﺜﺎق",
+"OSHA",
+"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ ﺑﻤﻌﺎﻳﻴﺮ.10",
+"- ﺟﺎﻣﻌﺔ ﻣﺎﻻﻳﺎ.11",
+"ﺗﻘﻴﻴﻢ اﻟﻤﺨﺎﻃﺮ وإدارﺗﻬﺎ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ",
+"- ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ",
+"OSH",
+"ﻣﺨﺎﻃﺮ اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ.12",
+"اﻟﺴﻼﻣﺔ اﻟﻌﺎﻣﺔ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺑﺮﻧﺎﻣﺞ اﻻﻣﻢ اﻟﻤﺘﺤﺪة.13",
+"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ - اﻟﻤﻨﻈﻤﺔ اﻟﺪوﻟﻴﺔ ﻟﻠﺴﻼﻣﺔ اﻟﻜﻴﻤﻴﺎﺋﻴﺔ.14",
+"ﻣﻜﺎﻓﺤﺔ اﻟﺤﺮاﺋﻖ - اﻟﻤﻨﻈﻤﺔ اﻟﺪوﻟﻴﺔ ﻟﻠﺴﻼﻣﺔ اﻟﻜﻴﻤﻴﺎﺋﻴﺔ.15",
+"ﻣﺪرب اﻣﻦ وﺳﻼﻣﺔ ﻣﻌﺘﻤﺪ - اﻟﻤﻨﻈﻤﺔ اﻟﺪوﻟﻴﺔ ﻟﻠﺴﻼﻣﺔ اﻟﻜﻴﻤﻴﺎﺋﻴﺔ.16",
+"G4S",
+"ﺿﺎﺑﻂ اﻣﻦ ﻣﻌﺘﻤﺪ - ﺷﺮﻛﺔ.17",
+"ﻣﻌﺎﻳﻴﺮ اﻟﺠﻮدة واﻟﺴﻼﻣﺔ ﻓﻲ اﻟﻔﻌﺎﻟﻴﺎت اﻟﺘﺮﻓﻴﻬﻴﺔ - ﻣﻨﺼﺔ دروب.18",
+"ادارة ﻋﻤﻠﻴﺎت اﻧﻈﻤﺔ اﻟﺴﻼﻣﺔ اﻟﻤﺴﺘﻮى.19",
+"- اﻛﺎدﻳﻤﻴﺔ وﻗﺎﻳﺔ",
+"FMS",
+"ﻣﻘﺪﻣﺔ ﻓﻲ اﻟﺼﺤﺔ واﻟﺴﻼﻣﺔ اﻟﻤﻬﻨﻴﺔ - اﻛﺎدﻳﻤﻴﺔ وﻗﺎﻳﺔ.20",
+"STC",
+"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ - ﺷﺮﻛﺔ.21",
+"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ (ادارة اﻻﺗﺼﺎﻻت اﻟﺨﻄﺮة) - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.22",
+"Alison",
+"Alison",
+"اﻟﺘﺤﻘﻴﻖ ﻓﻲ اﻟﺤﻮادث اﻟﻤﻬﻨﻴﺔ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ.23",
+"- ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ.24",
+"ﻣﻘﺪﻣﺔ ﻓﻲ اﻟﻘﺎﻧﻮن اﻟﺠﻨﺎﺋﻲ",
+"Google -",
+"اﻋﺪاد اﻟﺒﻴﺎﻧﺎت ﻟﻼﺳﺘﻜﺸﺎف.25",
+"ﻣﻤﺎرﺳﺔ اﻟﻘﻴﺎدة - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ ﻫﺎرﻓﺎرد.26",
+"اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ - ﻣﻨﺼﺔ ﻣﻌﺎرف.27",
+"اﺳﺎﺳﻴﺎت اﻟﺴﻼﻣﺔ واﻟﺼﺤﺔ اﻟﻤﻬﻨﻴﺔ - ﻣﻌﻬﺪ ﺗﺪرب.28",
+"ﺗﺎﺛﻴﺮ اﻟﺤﺮاﺋﻖ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ ﻣﺎرﻳﻼﻧﺪ.29",
+"ادارة اﻻزﻣﺎت - ﺟﺎﻣﻌﺔ اﻟﻔﻴﺼﻞ.30",
+"ادارة اﻟﻤﺨﺎﻃﺮ اﻟﻤﺘﻘﺪﻣﺔ - ﻣﻨﺼﺔ دروب.31",
+"IBM",
+"ﻗﻮاﻋﺪ اﻟﺒﻴﺎﻧﺎت اﻟﻌﻼﺋﻘﻴﺔ - ﺷﺮﻛﺔ.32",
+"ASSP -",
+"ﺗﻄﻮﻳﺮ اﻟﻘﻴﺎدات اﻟﺘﻄﻮﻋﻴﺔ.33",
+"اﻻﺷﺮاف واﻟﺘﻨﻈﻴﻢ اﻻداري - ﻣﻌﻬﺪ اﻻﺧﺘﻴﺎر اﻻﻣﺜﻞ.34",
+"ﻣﻌﺎﻟﺠﺔ ﻧﺼﻮص وادﺧﺎل ﺑﻴﺎﻧﺎت - ﻣﻌﻬﺪ ﻧﻴﻮﻫﻮراﻳﺰن.35",
+"ادارة اﻟﻔﻌﺎﻟﻴﺎت - ﻣﻨﺼﺔ دروب.36",
+"- ﻣﻨﺼﺔ دروب",
+"2013",
+"اﻛﺴﻞ.37",
+"اﻧﺸﺎء ﻟﻮﺣﺔ ﻣﻌﻠﻮﻣﺎت اﻛﺴﻞ - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.38",
+"اﻟﺘﻄﺒﻴﻘﺎت اﻟﻤﻜﺘﺒﻴﺔ ﻣﻦ ﺣﺰﻣﺔ اوﻓﻴﺲ - ﺟﺎﻣﻌﺔ ﻧﺠﺮان.39",
+"ﻣﺎﻳﻜﺮوﺳﻮﻓﺖ وورد - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.40",
+"ﻣﺎﻳﻜﺮوﺳﻮﻓﺖ ﺑﻮرﺑﻮﻳﻨﺖ - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.41",
+"اﻟﺴﻠﻮك اﻟﻤﺴﺆول ﻟﻠﺒﺤﺚ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ ﻳﻮﺗﺮﻳﺨﺖ.42",
+"ﻣﻘﺪﻣﺔ ﻓﻲ ادارة اﻻﻋﻤﺎل - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﻛﻠﻴﺔ ﻟﻨﺪن اﻟﺠﺎﻣﻌﻴﺔ.43",
+"اﻟﺴﻜﺮﺗﺎرﻳﺔ اﻟﺘﻨﻔﻴﺬﻳﺔ - ﻣﻨﺼﺔ دروب.44",
+"ﻣﻜﺎﻓﺤﺔ اﻟﻌﺪوى - اﻟﻬﻼل اﻻﺣﻤﺮ.45",
+"- اﻟﻬﻼل اﻻﺣﻤﺮ.46",
+"اﻟﻘﺎﻧﻮن اﻟﺪوﻟﻲ اﻻﻧﺴﺎﻧﻲ",
+"ادارة اﻟﻜﻮارث واﻻزﻣﺎت - اﻟﻬﻼل اﻻﺣﻤﺮ.47",
+"اﻻﺳﻌﺎﻓﺎت اﻻوﻟﻴﺔ - اﻟﻬﻼل اﻻﺣﻤﺮ.48",
+"- ﻣﻨﺼﺔ ادراك",
+"ICDL",
+"اﻟﺮﺧﺼﺔ اﻟﺪوﻟﻴﺔ ﻟﻘﻴﺎدة اﻟﺤﺎﺳﺐ اﻵﻟﻲ.49",
+"اﻻﻧﻈﻤﺔ واﻟﻘﻮاﻧﻴﻦ - ﻣﻨﺼﺔ دروب.50",
+"ادارة اﻻﻣﻦ واﻟﺴﻼﻣﺔ ﻓﻲ ﻣﻮاﻗﻊ اﻟﺒﻨﺎء - ﻣﻨﺼﺔ ﻟﻴﻨﻜﺪ ان.51",
+"اﻣﻦ اﻟﻤﻨﺸﺂت - ﻣﻨﺼﺔ دروب.52",
+"ﻣﻜﺎﻓﺤﺔ اﻟﻌﺪوى ﻣﻦ ﻓﺎﻳﺮوس ﻛﻮروﻧﺎ - ﻣﻨﺼﺔ دروب.53",
+"اﻻﻣﻦ واﻟﺴﻼﻣﺔ اﻟﺸﺨﺼﻴﺔ - ﻣﻨﺼﺔ دﻳﺴﺴﺘﺮ ردي.54",
+"ﺑﻴﺌﺎت اﻟﻌﻤﻞ اﻟﻤﻜﺘﺒﻴﺔ اﻟﺼﺤﻴﺔ واﻵﻣﻨﺔ - اﻛﺎدﻳﻤﻴﺔ وﻗﺎﻳﺔ.55",
+"اﻛﺘﺸﺎف رﻳﺎدة اﻷﻋﻤﺎل - ﺳﻴﺴﻜﻮ.56",
+"اﻟﺴﻼﻣﺔ ﻓﻲ ﺻﻨﺎﻋﺔ اﻟﻤﺮاﻓﻖ - ﻣﻨﺼﺔ اﻟﺘﻌﻠﻴﻢ اﻻﻟﻜﺘﺮوﻧﻲ ﺟﺎﻣﻌﺔ ﻧﻴﻮﻳﻮرك.57",
+"- ﻣﻨﺼﺔ ادراك.58",
+"اﺳﺎﺳﻴﺎت اﻟﺤﺎﺳﺐ اﻵﻟﻲ",
+"www.reallygreatsite.co"
     ];
-    // ترجمة إنجليزية مختصرة لنفس القائمة (لعرضها عند EN)
-    const COURSES_EN = COURSES_AR.map(t=>({
-      ar:t, en: t // إبقاء النص عربيًا في النسخة الإنجليزية لتفادي فقد الدقة
-    }));
 
     // ===== رسم الواجهة =====
     let lang='ar';
@@ -394,13 +401,10 @@
 
     function renderCourses(){
       const box = el('coursesBox'); box.innerHTML='';
-      const list = lang==='ar' ? COURSES_AR : COURSES_EN.map(x=>x.en);
-      list.forEach((title,i)=>{
+      COURSES_RAW.forEach((title)=>{
         const row = document.createElement('div'); row.className='course';
         row.innerHTML = `<span class="dot" aria-hidden="true"></span>
-          <div>
-            <h4 class="course-title">${(lang==='ar'?`${i+1}. `:'')}${title}</h4>
-          </div>`;
+          <div><h4 class="course-title">${title}</h4></div>`;
         box.appendChild(row);
       });
     }
@@ -408,12 +412,12 @@
     function renderSkills(){
       const t = I18N[lang];
       const grid = el('skillsGrid'); grid.innerHTML='';
-      t.skills = [
+      const data = [
         { title: lang==='ar'?"إدارة أمن وسلامة":"Security & Safety Mgmt", meta: lang==='ar'?"خطط تشغيل، تقييم مخاطر، SOPs":"Ops plans, risk assessment, SOPs", chips:["SOPs","Risk","HSE"]},
         { title: lang==='ar'?"تحليل البيانات وKPI":"Data Analytics & KPI", meta: lang==='ar'?"لوحات مؤشرات، خرائط حرارية":"Dashboards, heatmaps", chips:["Power BI","Excel","Vega"]},
         { title: lang==='ar'?"التحول الرقمي":"Digital Transformation", meta: lang==='ar'?"نماذج وأتمتة وتكامل نظم":"Forms automation, integrations", chips:["Django","Flutter","GIS"]},
       ];
-      t.skills.forEach(s=>{
+      data.forEach(s=>{
         const card=document.createElement('div'); card.className='card';
         card.innerHTML=`<div class="card__body"><h3 class="card__title">${s.title}</h3><p class="meta">${s.meta}</p><div class="chips">${s.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`;
         grid.appendChild(card);
@@ -451,29 +455,40 @@
       el('sideText').textContent  = t.sideText;
       renderChips('sideChips', t.sideChips);
 
-      // contacts (top icons)
+      // achievements
+      el('achievementsTitle').textContent = t.achievementsTitle;
+      el('achievementsDesc').textContent  = t.achievementsDesc;
+      renderAchievements();
+
+      // courses
+      el('coursesTitle').textContent = t.coursesTitle;
+      el('coursesDesc').textContent  = t.coursesDesc;
+      renderCourses();
+
+      // skills
+      el('skillsTitle').textContent = t.skillsTitle;
+      el('skillsDesc').textContent  = t.skillsDesc;
+      renderSkills();
+
+      // contacts
       const top = document.getElementById('contactTop'); top.innerHTML='';
-      t.contactList.forEach(item=>{
+      const contacts = [
+        { type:"email", href:`mailto:${PROFILE.email}`, label: (lang==='ar'?'البريد':'Email') },
+        { type:"phone", href:`tel:+966571441777`, label:(lang==='ar'?'الهاتف':'Phone') },
+        { type:"whatsapp", href:`https://wa.me/966571441777`, label:(lang==='ar'?'واتساب':'WhatsApp') },
+        { type:"linkedin", href:PROFILE.linkedin, label:'LinkedIn' }
+      ];
+      contacts.forEach(item=>{
         const li=document.createElement('li');
         li.innerHTML = `<a class="iconbtn" href="${item.href}" target="_blank" rel="noopener" aria-label="${item.label}" title="${item.label}">${iconSvg(item.type)}</a>`;
         top.appendChild(li);
       });
 
-      // sections
-      el('achievementsTitle').textContent = t.achievementsTitle;
-      el('achievementsDesc').textContent  = t.achievementsDesc;
-      renderAchievements();
-
-      el('coursesTitle').textContent = t.coursesTitle;
-      el('coursesDesc').textContent  = t.coursesDesc;
-      renderCourses();
-
-      el('skillsTitle').textContent = t.skillsTitle;
-      el('skillsDesc').textContent  = t.skillsDesc;
-      renderSkills();
+      // footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
     }
 
-    // toggle language
+    // Toggle language
     document.getElementById('langToggle').addEventListener('click', ()=>{
       lang = (lang==='ar'?'en':'ar');
       applyLang();
