@@ -9,59 +9,96 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="url(%23g)"/><text x="50%" y="54%" text-anchor="middle" font-family="Verdana" font-size="36" fill="white">S</text></svg>' />
+
   <style>
-    :root{--brand-primary:#0f172a;--brand-primary-2:#0b1221;--brand-accent:#06b6d4;--brand-accent-2:#22d3ee;--sand:#f6f7fb;--ink:#0a0a0a;--muted:#667085;--card:#ffffff;--shadow:0 10px 30px rgba(2,6,23,.12);--radius:20px;--radius-sm:14px;--max:1100px}
-    *{box-sizing:border-box}html,body{height:100%}
-    body{margin:0;background:linear-gradient(180deg,var(--sand),#fff 40%);color:var(--ink);font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.7;overflow-x:hidden}
-    a{color:var(--brand-accent);text-decoration:none}img{max-width:100%;display:block}
-    .container{width:100%;max-width:var(--max);margin-inline:auto;padding:0 20px}
-    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.2) blur(8px);background:linear-gradient(180deg, rgba(246,247,251,.86), rgba(255,255,255,.7));border-bottom:1px solid #eee}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand__logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--brand-primary),var(--brand-primary-2));display:grid;place-items:center;color:#fff;font-weight:800}
-    .brand__txt{font-weight:800;letter-spacing:.5px}.nav__cta{display:flex;gap:10px;align-items:center}
-    .btn{border:0;cursor:pointer;padding:10px 16px;border-radius:12px;font-weight:700}
-    .btn--ghost{background:#fff;border:1px solid #eee}.btn--accent{background:var(--brand-accent);color:#05202a}
-    .hero{position:relative;padding:56px 0 28px}
-    .hero__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-    .profile{display:flex;gap:14px;align-items:center;margin-top:12px}
-    .profile img{width:92px;height:92px;border-radius:18px;object-fit:cover;border:3px solid #fff;box-shadow:var(--shadow)}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;font-weight:700;background:linear-gradient(90deg,var(--brand-primary),var(--brand-primary-2));color:#fff}
-    h1{margin:16px 0 8px;font-size:clamp(28px,5vw,40px);line-height:1.2}
-    .lead{color:#333;font-size:18px;max-width:60ch}
-    .hero__card{background:var(--card);border:1px solid #eee;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-    .kpi{background:#fff;border:1px solid #eee;border-radius:16px;padding:14px;text-align:center}
-    .kpi strong{display:block;font-size:22px;color:var(--brand-primary)}
-    section{padding:34px 0}.section__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-    .section__title{font-size:24px;margin:0}.section__desc{color:var(--muted)}
-    .grid{display:grid;gap:16px}.grid--3{grid-template-columns:repeat(3,1fr)}.grid--2{grid-template-columns:repeat(2,1fr)}
+    :root{
+      --brand-primary:#0f172a; --brand-primary-2:#0b1221;
+      --brand-accent:#06b6d4; --brand-accent-2:#22d3ee;
+      --sand:#f6f7fb; --ink:#0a0a0a; --muted:#667085; --card:#ffffff;
+      --shadow:0 10px 30px rgba(2,6,23,.12);
+      --radius:20px; --radius-sm:14px; --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; background:linear-gradient(180deg,var(--sand),#fff 40%); color:var(--ink); font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.7; overflow-x:hidden}
+    a{color:var(--brand-accent); text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:100%; max-width:var(--max); margin-inline:auto; padding:0 20px}
+
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:linear-gradient(180deg, rgba(246,247,251,.86), rgba(255,255,255,.7)); border-bottom:1px solid #eee}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand__logo{width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg,var(--brand-primary),var(--brand-primary-2)); display:grid; place-items:center; color:#fff; font-weight:800}
+    .brand__txt{font-weight:800; letter-spacing:.5px}
+    .nav__cta{display:flex; gap:10px; align-items:center}
+    .btn{border:0; cursor:pointer; padding:10px 16px; border-radius:12px; font-weight:700}
+    .btn--ghost{background:#fff; border:1px solid #eee}
+    .btn--accent{background:var(--brand-accent); color:#05202a}
+
+    .hero{position:relative; padding:56px 0 28px}
+    .hero__grid{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center}
+    .profile{display:flex; gap:14px; align-items:center; margin-top:12px}
+    .profile img{width:92px; height:92px; border-radius:18px; object-fit:cover; border:3px solid #fff; box-shadow:var(--shadow)}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; font-weight:700; background:linear-gradient(90deg,var(--brand-primary),var(--brand-primary-2)); color:#fff}
+    h1{margin:16px 0 8px; font-size:clamp(28px,5vw,40px); line-height:1.2}
+    .lead{color:#333; font-size:18px; max-width:60ch}
+    .hero__card{background:var(--card); border:1px solid #eee; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px}
+    .kpi{background:#fff; border:1px solid #eee; border-radius:16px; padding:14px; text-align:center}
+    .kpi strong{display:block; font-size:22px; color:var(--brand-primary)}
+
+    section{padding:34px 0}
+    .section__head{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px}
+    .section__title{font-size:24px; margin:0}
+    .section__desc{color:var(--muted)}
+
+    .grid{display:grid; gap:16px}
+    .grid--3{grid-template-columns:repeat(3,1fr)}
+    .grid--2{grid-template-columns:repeat(2,1fr)}
     @media (max-width:900px){.hero__grid{grid-template-columns:1fr}.grid--3{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:640px){.grid--3,.grid--2{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow)}.card__body{padding:16px}
-    .card__title{margin:0 0 6px;font-size:18px}.meta{color:var(--muted);font-size:14px}
-    .timeline{position:relative;margin:24px 0 0;padding:40px 0;list-style:none}
-    .timeline::before{content:"";position:absolute;inset-block:0;inset-inline:calc(50% - 1px);width:2px;background:linear-gradient(180deg,var(--brand-accent),transparent 25%,var(--brand-accent) 75%,transparent)}
-    .tl{position:relative;width:calc(50% - 28px);margin:18px 0;border-radius:var(--radius-sm);background:#fff;border:1px solid #eef1f4;box-shadow:var(--shadow)}
-    .tl .card__body{padding:14px 16px}.tl.is-left{margin-inline-start:0;margin-inline-end:auto}
-    .tl.is-right{margin-inline-start:auto;margin-inline-end:0}
-    .tl::before{content:"";position:absolute;top:18px;inset-inline:100% auto;width:22px;height:2px;background:linear-gradient(90deg,transparent,var(--brand-accent))}
-    .tl.is-right::before{inset-inline:auto 100%;background:linear-gradient(90deg,var(--brand-accent),transparent)}
-    .tl::after{content:"";position:absolute;top:9px;inset-inline:calc(100% + 8px);width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#22d3ee 0 40%,#0ea5b7 41% 100%);box-shadow:0 0 0 6px rgba(34,211,238,.18),0 6px 18px rgba(15,23,42,.25)}
+    .card{background:var(--card); border:1px solid #eee; border-radius:var(--radius); box-shadow:var(--shadow)}
+    .card__body{padding:16px}
+    .card__title{margin:0 0 6px; font-size:18px}
+    .meta{color:var(--muted); font-size:14px}
+
+    /* Timeline */
+    .timeline{position:relative; margin:24px 0 0; padding:40px 0; list-style:none}
+    .timeline::before{content:""; position:absolute; inset-block:0; inset-inline:calc(50% - 1px); width:2px; background:linear-gradient(180deg,var(--brand-accent),transparent 25%,var(--brand-accent) 75%,transparent)}
+    .tl{position:relative; width:calc(50% - 28px); margin:18px 0; border-radius:var(--radius-sm); background:#fff; border:1px solid #eef1f4; box-shadow:var(--shadow)}
+    .tl .card__body{padding:14px 16px}
+    .tl.is-left{margin-inline-start:0; margin-inline-end:auto}
+    .tl.is-right{margin-inline-start:auto; margin-inline-end:0}
+    .tl::before{content:""; position:absolute; top:18px; inset-inline:100% auto; width:22px; height:2px; background:linear-gradient(90deg,transparent, var(--brand-accent))}
+    .tl.is-right::before{inset-inline:auto 100%; background:linear-gradient(90deg,var(--brand-accent), transparent)}
+    .tl::after{content:""; position:absolute; top:9px; inset-inline:calc(100% + 8px); width:14px; height:14px; border-radius:50%; background:radial-gradient(circle at 50% 50%, #22d3ee 0 40%, #0ea5b7 41% 100%); box-shadow:0 0 0 6px rgba(34,211,238,.18), 0 6px 18px rgba(15,23,42,.25)}
     .tl.is-right::after{inset-inline:auto calc(100% + 8px)}
-    .year-chip{position:absolute;inset-inline:calc(50% - 34px);top:-18px;width:68px;text-align:center;background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;border-radius:999px;font-weight:800;font-size:12px;padding:6px 0;box-shadow:var(--shadow)}
-    @media (max-width:760px){.timeline{padding:24px 0}.timeline::before{inset-inline:22px}.tl{width:auto;margin-inline:0;padding-inline-start:48px}.tl::before{inset-inline:0 auto;width:18px}.tl::after{inset-inline:14px}.year-chip{inset-inline:10px}}
-    .course{display:grid;grid-template-columns:14px 1fr;gap:12px;align-items:start;padding:12px 0;border-top:1px dashed #eee}
-    .course:first-child{border-top:0}.dot{width:10px;height:10px;border-radius:50%;margin-top:7px;background:linear-gradient(135deg,#22d3ee,#06b6d4);box-shadow:0 0 0 6px rgba(34,211,238,.12)}
-    .course-title{margin:0;font-size:16px}.course-org{color:var(--muted);font-size:13px}
-    .more-wrap{display:flex;justify-content:center;margin:10px 0 0}
-    .link-btn{background:transparent;border:0;cursor:pointer;color:#0ea5b7;font-weight:800;padding:8px 14px;border-radius:999px}
+    .impact{margin-top:6px; padding:8px 10px; background:#f8fafc; border:1px dashed #e2e8f0; border-radius:10px; font-size:14px; color:#334155}
+
+    @media (max-width:760px){
+      .timeline{padding:24px 0}
+      .timeline::before{inset-inline:22px}
+      .tl{width:auto; margin-inline:0; padding-inline-start:48px}
+      .tl::before{inset-inline:0 auto; width:18px}
+      .tl::after{inset-inline:14px}
+    }
+
+    /* Courses list + زر أكثر */
+    .course{display:grid; grid-template-columns:14px 1fr; gap:12px; align-items:start; padding:12px 0; border-top:1px dashed #eee}
+    .course:first-child{border-top:0}
+    .dot{width:10px; height:10px; border-radius:50%; margin-top:7px; background:linear-gradient(135deg,#22d3ee,#06b6d4); box-shadow:0 0 0 6px rgba(34,211,238,.12)}
+    .course-title{margin:0; font-size:16px}
+    .course-org{color:var(--muted); font-size:13px}
+    .more-wrap{display:flex; justify-content:center; margin:10px 0 0}
+    .link-btn{background:transparent; border:0; cursor:pointer; color:#0ea5b7; font-weight:800; padding:8px 14px; border-radius:999px}
     .link-btn:hover{text-decoration:underline}
-    footer{padding:28px 0 48px;border-top:1px solid #eee;background:#fff}
-    .foot{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}
-    .chips{display:flex;gap:8px;flex-wrap:wrap}.chip{background:#fff;border:1px solid #eee;border-radius:999px;padding:6px 10px;font-size:14px}
+
+    footer{padding:28px 0 48px; border-top:1px solid #eee; background:#fff}
+    .foot{display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap}
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{background:#fff; border:1px solid #eee; border-radius:999px; padding:6px 10px; font-size:14px}
     .accent{color:var(--brand-accent)}
-    .surface{background:#fff;border-radius:var(--radius);border:1px solid #eee;box-shadow:var(--shadow);overflow:visible} /* مهم لظهور زر أكثر */
+    .surface{background:#fff; border-radius:var(--radius); border:1px solid #eee; box-shadow:var(--shadow); overflow:visible}
   </style>
 </head>
 <body>
@@ -81,6 +118,7 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero__grid">
         <div>
@@ -107,26 +145,28 @@
       </div>
     </section>
 
+    <!-- ACHIEVEMENTS (بدون سنوات) -->
     <section id="achievements">
       <div class="container">
         <div class="section__head">
-          <h2 class="section__title" id="achievementsTitle">الإنجازات البارزة</h2>
-          <p class="section__desc" id="achievementsDesc">بالاضافة للعديد من المبادرات والتوصيات للارتقاء بجودة العمل.</p>
+          <h2 class="section__title">الإنجازات البارزة</h2>
+          <p class="section__desc">عرض زمني متناوب يوضح أثر الأعمال دون تقييد بسنة محددة.</p>
         </div>
         <ul class="timeline" id="achievementsList"></ul>
       </div>
     </section>
 
+    <!-- COURSES -->
     <section id="courses">
       <div class="container">
         <div class="section__head">
           <h2 class="section__title" id="coursesTitle">الدورات التدريبية والاعتمادات</h2>
-          <p class="section__desc" id="coursesDesc"></p>
         </div>
         <div class="surface" style="padding:10px 16px" id="coursesBox"></div>
       </div>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills">
       <div class="container">
         <div class="section__head">
@@ -146,36 +186,62 @@
   </footer>
 
   <script>
-    // حدّد اللغة قبل أي رندر
+    /* اللغة قبل أي رندر */
     let lang = 'ar';
 
+    /* بيانات عامة */
     const PROFILE = { name:"سعد السبيعي", years:20, certsCount:60, projectsCount:30, photo:"profile.jpg" };
     const fmtNum = (n)=>Number(n).toLocaleString('en-US');
-    const hijriYearFromGregorianYear = (gy)=>{ try{ return new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{year:'numeric'}).format(new Date(gy,5,30)); }catch{ return ""; } };
 
+    /* إنجازات مع “الأثر” */
     const ACHIEVEMENTS = [
-      { ar:{title:"نجاح خطة اليوم الوطني – الدرعية", detail:"تنسيق الأمن والحركة, وتفعيل غرفة عمليات, ولوحات مباشرة, خفّض زمن الاستجابة."}, year:2025 },
-      { ar:{title:"لوحة مؤشرات تشغيلية موحّدة (KPI)", detail:"تكامل مصادر الحوادث/المرور/الصيانة وتقارير تلقائية؛ −60% وقت إعداد التقرير اليومي."}, year:2024 },
-      { ar:{title:"SOPs لإدارة الحشود والفعاليات", detail:"إجراءات تشغيل قياسية لمسارات الدخول/الخروج والتواصل وتوزيع الأفراد."}, year:2024 },
-      { ar:{title:"أتمتة تقارير نهاية الوردية", detail:"نماذج رقمية وتوليد PDF موحّد لتجميع المصادر وإرسال الملخص تلقائيًا."}, year:2022 }
+      {
+        title:"تخطيط وتنفيذ فرضيات أمنية لتعزيز جاهزية الفرق الميدانية ورفع كفاءة الاستجابة.",
+        impact:"رفع الجاهزية وخفض زمن الاستجابة للحوادث."
+      },
+      {
+        title:"تنظيم وتقديم دورات أمنية وتقنية لمنسوبي الأمن وغرف التحكم لتنمية القدرات التشغيلية.",
+        impact:"تحسين الالتزام بالإجراءات وزيادة كفاءة غرف التحكم."
+      },
+      {
+        title:"اقتراح وتنفيذ مبادرة الخريطة التفاعلية لمتابعة وتوزيع الفرق الأمنية في المواقع الحيوية.",
+        impact:"تتبّع حي وتوزيع أمثل للموارد وتقليل زمن الوصول."
+      },
+      {
+        title:"التحول بخدمات الموظفين إلى خدمات إلكترونية بالكامل ودعم تحسين تجربة المستخدم الداخلي.",
+        impact:"تقليص زمن المعاملات ورفع رضا المستخدم الداخلي."
+      },
+      {
+        title:"أتمتة إجراءات استلام وتسليم الورديات لضمان الدقة ورفع مستوى موثوقية العمليات التشغيلية.",
+        impact:"توثيق رقمي وتقليل الأخطاء وتحسين الاتساق التشغيلي."
+      },
+      {
+        title:"المشاركة في تخطيط العمليات وتنظيم الموارد في الفعاليات والمناسبات الكبرى.",
+        impact:"تغطية موارد متوازنة ومسارات تدخل واضحة في الذروة."
+      },
+      {
+        title:"تطوير لوحات تحكم تفاعلية للبلاغات الأمنية عبر Power BI لدعم اتخاذ القرار وتحسين مؤشرات الأداء.",
+        impact:"رؤية لحظية للمؤشرات وتسريع اتخاذ القرار."
+      }
     ];
 
     function renderAchievements(){
       const ul = document.getElementById('achievementsList'); ul.innerHTML='';
-      ACHIEVEMENTS.forEach((a,idx)=>{
-        const li = document.createElement('li'); li.className='tl '+(idx%2? 'is-right':'is-left');
-        const hy = hijriYearFromGregorianYear(a.year);
-        li.innerHTML = `<div class="year-chip">${fmtNum(a.year)}</div>
+      ACHIEVEMENTS.forEach((a, idx)=>{
+        const li = document.createElement('li');
+        li.className = 'tl ' + (idx % 2 ? 'is-right' : 'is-left');
+        li.innerHTML = `
           <div class="card__body">
-            <h4 style="margin:0 0 6px">${a.ar.title}</h4>
-            <div class="meta">${fmtNum(a.year)} • ${hy} هـ</div>
-            <p style="margin:.35rem 0 0">${a.ar.detail}</p>
+            <h4 style="margin:0 0 6px">إنجاز</h4>
+            <p style="margin:.35rem 0 8px">${a.title}</p>
+            <div class="impact"><strong>الأثر:</strong> ${a.impact}</div>
           </div>`;
         ul.appendChild(li);
       });
     }
 
-    const COURSES = [/* ——— نفس قائمتك الطويلة كما أضفتها تمامًا ——— */ 
+    /* الدورات — نفس قائمتك مرتبة وبدون أرقام في العرض */
+    const COURSES = [
       {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻷﻣﻨﻴﺔ (اﻗﻠﻴﻤﻲ)", org:"—"},
       {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻻﻣﻨﻴﺔ (وﻃﻨﻲ)", org:"—"},
       {title:"PMP – ادارة اﻟﻤﺸﺎرﻳﻊ", org:"—"},
@@ -250,8 +316,12 @@
       const list = (coursesExpanded ? COURSES : COURSES.slice(0, COURSES_VISIBLE));
       list.forEach(c=>{
         const row = document.createElement('div'); row.className='course';
-        row.innerHTML = `<span class="dot" aria-hidden="true"></span>
-          <div><h4 class="course-title">${c.title}</h4><div class="course-org">${c.org}</div></div>`;
+        row.innerHTML = `
+          <span class="dot" aria-hidden="true"></span>
+          <div>
+            <h4 class="course-title">${c.title}</h4>
+            <div class="course-org">${c.org}</div>
+          </div>`;
         box.appendChild(row);
       });
 
@@ -272,11 +342,13 @@
       }
     });
 
+    /* المهارات */
     function renderSkills(){
       const grid = document.getElementById('skillsGrid'); grid.innerHTML='';
-      [{title:"إدارة أمن وسلامة",meta:"خطط تشغيل، تقييم مخاطر، SOPs",chips:["SOPs","Risk","HSE"]},
-       {title:"تحليل البيانات وKPI",meta:"لوحات مؤشرات، خرائط حرارية",chips:["Power BI","Excel","Vega"]},
-       {title:"التحول الرقمي",meta:"نماذج وأتمتة وتكامل نظم",chips:["Django","Flutter","GIS"]},
+      [
+        { title:"إدارة أمن وسلامة", meta:"خطط تشغيل، تقييم مخاطر، SOPs", chips:["SOPs","Risk","HSE"]},
+        { title:"تحليل البيانات وKPI", meta:"لوحات مؤشرات، خرائط حرارية", chips:["Power BI","Excel","Vega"]},
+        { title:"التحول الرقمي", meta:"نماذج وأتمتة وتكامل نظم", chips:["Django","Flutter","GIS"]},
       ].forEach(s=>{
         const card=document.createElement('div'); card.className='card';
         card.innerHTML=`<div class="card__body"><h3 class="card__title">${s.title}</h3><p class="meta">${s.meta}</p><div class="chips">${s.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`;
@@ -284,16 +356,16 @@
       });
     }
 
-    // تهيئة
+    /* تهيئة أولية */
     document.getElementById('heroChips').innerHTML=['Operations','Risk Management','KPI','GIS'].map(t=>`<span class="chip">${t}</span>`).join('');
     document.getElementById('sideChips').innerHTML=['Power BI','Django','Flutter','MapLibre/GIS'].map(t=>`<span class="chip">${t}</span>`).join('');
     document.getElementById('year').textContent=new Date().getFullYear();
 
     renderAchievements();
     renderSkills();
-    renderCourses(); // بعد تحديد lang
+    renderCourses();
 
-    // تبديل اللغة (واجهة عامة فقط)
+    /* تبديل اللغة للواجهة العامة فقط */
     document.getElementById('langToggle').addEventListener('click', ()=>{
       lang=(lang==='ar'?'en':'ar');
       document.documentElement.dir=(lang==='ar'?'rtl':'ltr');
@@ -308,14 +380,9 @@
       document.getElementById('kpiYearsLbl').textContent=(lang==='ar'?'سنوات خبرة':'Years Experience');
       document.getElementById('kpiCertsLbl').textContent=(lang==='ar'?'شهادة وتدريب':'Certs & Trainings');
       document.getElementById('kpiProjectsLbl').textContent=(lang==='ar'?'مشروع رئيسي':'Major Projects');
-      document.getElementById('achievementsTitle').textContent=(lang==='ar'?'الإنجازات البارزة':'Key Achievements');
-      document.getElementById('achievementsDesc').textContent=(lang==='ar'?'':'Impact-focused timeline of results.');
-      document.getElementById('coursesTitle').textContent=(lang==='ar'?'الدورات التدريبية والاعتمادات':'Courses & Certifications');
-      document.getElementById('coursesDesc').textContent=(lang==='ar'?'':'Ordered per your list and shown without numbers.');
       document.getElementById('skillsTitle').textContent=(lang==='ar'?'المهارات والأدوات':'Skills & Tools');
       document.getElementById('skillsDesc').textContent=(lang==='ar'?'مجالات الخبرة التقنية والعملية.':'Technical and operational expertise.');
-      // إعادة بناء زر أكثر/أقل بالنص الجديد
-      renderCourses();
+      renderCourses(); // لتحديث نص زر أكثر/أقل
     });
   </script>
 </body>
