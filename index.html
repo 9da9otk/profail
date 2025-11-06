@@ -89,6 +89,15 @@
     .dot{width:10px; height:10px; border-radius:50%; margin-top:7px; background:linear-gradient(135deg,#22d3ee,#06b6d4); box-shadow:0 0 0 6px rgba(34,211,238,.12)}
     .course-title{margin:0; font-size:16px}
     .course-org{color:var(--muted); font-size:13px}
+
+    /* More/Less button for courses */
+    .more-wrap{display:flex; justify-content:center; margin:10px 0 0}
+    .link-btn{
+      background:transparent; border:0; cursor:pointer;
+      color:#0ea5b7; font-weight:800; padding:8px 14px; border-radius:999px;
+    }
+    .link-btn:hover{ text-decoration:underline; }
+
     footer{padding:28px 0 48px; border-top:1px solid #eee; background:#fff}
     .foot{display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap}
     .chips{display:flex; gap:8px; flex-wrap:wrap}
@@ -224,7 +233,6 @@
     }
 
     // ===== الدورات التدريبية وفق الترقيم (بدون أرقام في العرض) =====
-    // كل عنصر: {title, org}
     const COURSES = [
       {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻷﻣﻨﻴﺔ (اﻗﻠﻴﻤﻲ)", org:"—"},
       {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻻﻣﻨﻴﺔ (وﻃﻨﻲ)", org:"—"},
@@ -286,9 +294,22 @@
       {title:"أساسيات الحاسب الآلي", org:"منصة إدراك"}
     ];
 
+    // إظهار أول 5 دورات فقط مع زر أكثر/أقل
+    const COURSES_VISIBLE = 5;
+    let coursesExpanded = false;
+
+    function coursesToggleLabel(lang, expanded, remaining){
+      if(lang === 'ar') return expanded ? 'أقل' : `أكثر (+${fmtNum(remaining)})`;
+      return expanded ? 'Less' : `More (+${fmtNum(remaining)})`;
+    }
+
     function renderCourses(){
-      const box = document.getElementById('coursesBox'); box.innerHTML='';
-      COURSES.forEach(c=>{
+      const box = document.getElementById('coursesBox'); 
+      box.innerHTML='';
+
+      const list = coursesExpanded ? COURSES : COURSES.slice(0, COURSES_VISIBLE);
+
+      list.forEach(c=>{
         const row = document.createElement('div'); row.className='course';
         row.innerHTML = `
           <span class="dot" aria-hidden="true"></span>
@@ -298,7 +319,26 @@
           </div>`;
         box.appendChild(row);
       });
+
+      const remaining = COURSES.length - COURSES_VISIBLE;
+      if(remaining > 0){
+        const wrap = document.createElement('div'); wrap.className='more-wrap';
+        const btn = document.createElement('button'); 
+        btn.className='link-btn'; 
+        btn.setAttribute('data-toggle-courses','');
+        btn.textContent = coursesToggleLabel(lang, coursesExpanded, remaining);
+        wrap.appendChild(btn);
+        box.appendChild(wrap);
+      }
     }
+
+    // تفويض حدث لزر أكثر/أقل
+    document.getElementById('coursesBox').addEventListener('click', (e)=>{
+      if(e.target && e.target.matches('[data-toggle-courses]')){
+        coursesExpanded = !coursesExpanded;
+        renderCourses();
+      }
+    });
 
     // ===== مهارات =====
     function renderSkills(){
@@ -346,12 +386,10 @@
       document.getElementById('coursesDesc').textContent=(lang==='ar'?'':'Ordered per your list and shown without numbers.');
       document.getElementById('skillsTitle').textContent=(lang==='ar'?'المهارات والأدوات':'Skills & Tools');
       document.getElementById('skillsDesc').textContent=(lang==='ar'?'مجالات الخبرة التقنية والعملية.':'Technical and operational expertise.');
+
+      // إعادة بناء زر أكثر/أقل ليتحول نصّه بحسب اللغة
+      renderCourses();
     });
   </script>
 </body>
 </html>
-
-
-
-
-
