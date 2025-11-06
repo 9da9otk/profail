@@ -75,6 +75,10 @@
     .tl.is-right::after{inset-inline:auto calc(100% + 8px)}
     .impact{margin-top:6px; padding:8px 10px; background:#f8fafc; border:1px dashed #e2e8f0; border-radius:10px; font-size:14px; color:#334155}
 
+    /* عنوان الإنجاز مع الأيقونة */
+    .ah-title{display:flex; align-items:center; gap:8px; margin:0 0 6px; font-size:16px}
+    .ico{width:18px; height:18px; display:inline-block; color:var(--brand-accent)}
+
     @media (max-width:760px){
       .timeline{padding:24px 0}
       .timeline::before{inset-inline:22px}
@@ -193,33 +197,53 @@
     const PROFILE = { name:"سعد السبيعي", years:20, certsCount:60, projectsCount:30, photo:"profile.jpg" };
     const fmtNum = (n)=>Number(n).toLocaleString('en-US');
 
-    /* إنجازات مع “الأثر” */
+    /* أيقونات الإنجازات (SVG) */
+    function iconSvg(type){
+      // كل الأيقونات بلون currentColor وتعمل RTL/LTR
+      if(type==='shield') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6"/></svg>';
+      if(type==='training') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M4 6h12a4 4 0 014 4v8H8a4 4 0 01-4-4V6z" stroke="currentColor" stroke-width="1.6"/><path d="M8 6v12" stroke="currentColor" stroke-width="1.6"/></svg>';
+      if(type==='map') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2" fill="currentColor"/></svg>';
+      if(type==='digital') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 20h10" stroke="currentColor" stroke-width="1.6"/></svg>';
+      if(type==='workflow') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="15" y="4" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="9" y="14" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 7h6M12 10v4" stroke="currentColor" stroke-width="1.6"/></svg>';
+      if(type==='event') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 3v4M16 3v4M3 10h18" stroke="currentColor" stroke-width="1.6"/></svg>';
+      if(type==='chart') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M3 20h18" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="12" width="3" height="6" fill="currentColor"/><rect x="10.5" y="9" width="3" height="9" fill="currentColor"/><rect x="16" y="6" width="3" height="12" fill="currentColor"/></svg>';
+      return '<svg class="ico" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>';
+    }
+
+    /* إنجازات مع الأثر + نوع الأيقونة */
     const ACHIEVEMENTS = [
       {
+        icon:'shield',
         title:"تخطيط وتنفيذ فرضيات أمنية لتعزيز جاهزية الفرق الميدانية ورفع كفاءة الاستجابة.",
         impact:"رفع الجاهزية وخفض زمن الاستجابة للحوادث."
       },
       {
+        icon:'training',
         title:"تنظيم وتقديم دورات أمنية وتقنية لمنسوبي الأمن وغرف التحكم لتنمية القدرات التشغيلية.",
         impact:"تحسين الالتزام بالإجراءات وزيادة كفاءة غرف التحكم."
       },
       {
+        icon:'map',
         title:"اقتراح وتنفيذ مبادرة الخريطة التفاعلية لمتابعة وتوزيع الفرق الأمنية في المواقع الحيوية.",
         impact:"تتبّع حي وتوزيع أمثل للموارد وتقليل زمن الوصول."
       },
       {
+        icon:'digital',
         title:"التحول بخدمات الموظفين إلى خدمات إلكترونية بالكامل ودعم تحسين تجربة المستخدم الداخلي.",
         impact:"تقليص زمن المعاملات ورفع رضا المستخدم الداخلي."
       },
       {
+        icon:'workflow',
         title:"أتمتة إجراءات استلام وتسليم الورديات لضمان الدقة ورفع مستوى موثوقية العمليات التشغيلية.",
         impact:"توثيق رقمي وتقليل الأخطاء وتحسين الاتساق التشغيلي."
       },
       {
+        icon:'event',
         title:"المشاركة في تخطيط العمليات وتنظيم الموارد في الفعاليات والمناسبات الكبرى.",
         impact:"تغطية موارد متوازنة ومسارات تدخل واضحة في الذروة."
       },
       {
+        icon:'chart',
         title:"تطوير لوحات تحكم تفاعلية للبلاغات الأمنية عبر Power BI لدعم اتخاذ القرار وتحسين مؤشرات الأداء.",
         impact:"رؤية لحظية للمؤشرات وتسريع اتخاذ القرار."
       }
@@ -232,15 +256,14 @@
         li.className = 'tl ' + (idx % 2 ? 'is-right' : 'is-left');
         li.innerHTML = `
           <div class="card__body">
-            <h4 style="margin:0 0 6px">إنجاز</h4>
-            <p style="margin:.35rem 0 8px">${a.title}</p>
+            <h4 class="ah-title">${iconSvg(a.icon)}<span>${a.title}</span></h4>
             <div class="impact"><strong>الأثر:</strong> ${a.impact}</div>
           </div>`;
         ul.appendChild(li);
       });
     }
 
-    /* الدورات — نفس قائمتك مرتبة وبدون أرقام في العرض */
+    /* الدورات — مرتبة وبدون أرقام في العرض + زر أكثر/أقل */
     const COURSES = [
       {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻷﻣﻨﻴﺔ (اﻗﻠﻴﻤﻲ)", org:"—"},
       {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻻﻣﻨﻴﺔ (وﻃﻨﻲ)", org:"—"},
@@ -382,9 +405,8 @@
       document.getElementById('kpiProjectsLbl').textContent=(lang==='ar'?'مشروع رئيسي':'Major Projects');
       document.getElementById('skillsTitle').textContent=(lang==='ar'?'المهارات والأدوات':'Skills & Tools');
       document.getElementById('skillsDesc').textContent=(lang==='ar'?'مجالات الخبرة التقنية والعملية.':'Technical and operational expertise.');
-      renderCourses(); // لتحديث نص زر أكثر/أقل
+      renderCourses(); // تحديث نص زر أكثر/أقل
     });
   </script>
 </body>
 </html>
-
