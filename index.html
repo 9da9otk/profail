@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="url(%23g)"/><text x="50%" y="54%" text-anchor="middle" font-family="Verdana" font-size="36" fill="white">S</text></svg>' />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
 
   <style>
     :root{
@@ -25,16 +25,23 @@
     img{max-width:100%; display:block}
     .container{width:100%; max-width:var(--max); margin-inline:auto; padding:0 20px}
 
+    /* Header */
     header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(8px); background:linear-gradient(180deg, rgba(246,247,251,.86), rgba(255,255,255,.7)); border-bottom:1px solid #eee}
     .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
     .brand{display:flex; align-items:center; gap:12px}
-    .brand__logo{width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg,var(--brand-primary),var(--brand-primary-2)); display:grid; place-items:center; color:#fff; font-weight:800}
+    .brand__logo{
+      width:40px; height:40px; border-radius:12px;
+      background:#fff; border:1px solid #eee; box-shadow:var(--shadow);
+      display:grid; place-items:center; overflow:hidden;
+    }
+    .brand__logo img{width:90%; height:90%; object-fit:contain}
     .brand__txt{font-weight:800; letter-spacing:.5px}
     .nav__cta{display:flex; gap:10px; align-items:center}
     .btn{border:0; cursor:pointer; padding:10px 16px; border-radius:12px; font-weight:700}
     .btn--ghost{background:#fff; border:1px solid #eee}
     .btn--accent{background:var(--brand-accent); color:#05202a}
 
+    /* Hero */
     .hero{position:relative; padding:56px 0 28px}
     .hero__grid{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center}
     .profile{display:flex; gap:14px; align-items:center; margin-top:12px}
@@ -47,6 +54,7 @@
     .kpi{background:#fff; border:1px solid #eee; border-radius:16px; padding:14px; text-align:center}
     .kpi strong{display:block; font-size:22px; color:var(--brand-primary)}
 
+    /* Sections */
     section{padding:34px 0}
     .section__head{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px}
     .section__title{font-size:24px; margin:0}
@@ -65,29 +73,33 @@
     /* Timeline */
     .timeline{position:relative; margin:24px 0 0; padding:40px 0; list-style:none}
     .timeline::before{content:""; position:absolute; inset-block:0; inset-inline:calc(50% - 1px); width:2px; background:linear-gradient(180deg,var(--brand-accent),transparent 25%,var(--brand-accent) 75%,transparent)}
-    .tl{position:relative; width:calc(50% - 28px); margin:18px 0; border-radius:var(--radius-sm); background:#fff; border:1px solid #eef1f4; box-shadow:var(--shadow)}
-    .tl .card__body{padding:14px 16px}
+    .tl{position:relative; width:calc(50% - 28px); margin:22px 0; border-radius:var(--radius-sm); background:#fff; border:1px solid #eef1f4; box-shadow:var(--shadow)}
+    .tl .card__body{padding:16px 18px}
     .tl.is-left{margin-inline-start:0; margin-inline-end:auto}
     .tl.is-right{margin-inline-start:auto; margin-inline-end:0}
-    .tl::before{content:""; position:absolute; top:18px; inset-inline:100% auto; width:22px; height:2px; background:linear-gradient(90deg,transparent, var(--brand-accent))}
+    .tl::before{content:""; position:absolute; top:24px; inset-inline:100% auto; width:28px; height:2px; background:linear-gradient(90deg,transparent, var(--brand-accent))}
     .tl.is-right::before{inset-inline:auto 100%; background:linear-gradient(90deg,var(--brand-accent), transparent)}
-    .tl::after{content:""; position:absolute; top:9px; inset-inline:calc(100% + 8px); width:14px; height:14px; border-radius:50%; background:radial-gradient(circle at 50% 50%, #22d3ee 0 40%, #0ea5b7 41% 100%); box-shadow:0 0 0 6px rgba(34,211,238,.18), 0 6px 18px rgba(15,23,42,.25)}
-    .tl.is-right::after{inset-inline:auto calc(100% + 8px)}
-    .impact{margin-top:6px; padding:8px 10px; background:#f8fafc; border:1px dashed #e2e8f0; border-radius:10px; font-size:14px; color:#334155}
-
-    /* عنوان الإنجاز مع الأيقونة */
-    .ah-title{display:flex; align-items:center; gap:8px; margin:0 0 6px; font-size:16px}
-    .ico{width:18px; height:18px; display:inline-block; color:var(--brand-accent)}
+    /* أيقونة كبيرة عند العمود */
+    .tl__icon{
+      position:absolute; top:14px; inset-inline:calc(100% + 8px);
+      width:36px; height:36px; border-radius:50%;
+      background:linear-gradient(135deg,#22d3ee,#06b6d4);
+      box-shadow:0 0 0 8px rgba(34,211,238,.15), 0 8px 22px rgba(15,23,42,.25);
+      display:grid; place-items:center; color:#0b1221;
+    }
+    .tl.is-right .tl__icon{ inset-inline:auto calc(100% + 8px); }
+    .tl__icon svg{ width:20px; height:20px; color:#0b1221; }
+    .impact{margin-top:8px; padding:10px 12px; background:#f8fafc; border:1px dashed #e2e8f0; border-radius:10px; font-size:14px; color:#334155}
 
     @media (max-width:760px){
       .timeline{padding:24px 0}
       .timeline::before{inset-inline:22px}
-      .tl{width:auto; margin-inline:0; padding-inline-start:48px}
-      .tl::before{inset-inline:0 auto; width:18px}
-      .tl::after{inset-inline:14px}
+      .tl{width:auto; margin-inline:0; padding-inline-start:58px}
+      .tl::before{inset-inline:0 auto; width:22px}
+      .tl__icon{inset-inline:14px}
     }
 
-    /* Courses list + زر أكثر */
+    /* Courses + زر أكثر */
     .course{display:grid; grid-template-columns:14px 1fr; gap:12px; align-items:start; padding:12px 0; border-top:1px dashed #eee}
     .course:first-child{border-top:0}
     .dot{width:10px; height:10px; border-radius:50%; margin-top:7px; background:linear-gradient(135deg,#22d3ee,#06b6d4); box-shadow:0 0 0 6px rgba(34,211,238,.12)}
@@ -97,6 +109,7 @@
     .link-btn{background:transparent; border:0; cursor:pointer; color:#0ea5b7; font-weight:800; padding:8px 14px; border-radius:999px}
     .link-btn:hover{text-decoration:underline}
 
+    /* Footer */
     footer{padding:28px 0 48px; border-top:1px solid #eee; background:#fff}
     .foot{display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap}
     .chips{display:flex; gap:8px; flex-wrap:wrap}
@@ -109,7 +122,10 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="brand__logo" aria-hidden>CV</div>
+        <!-- شعار بدل CV -->
+        <a href="#top" class="brand__logo" aria-label="الشعار">
+          <img src="logo.svg" alt="شعار سعد" onerror="this.onerror=null; this.src='logo.png';" />
+        </a>
         <div class="brand__txt" id="brandTxt">شهاداتي وإنجازاتي</div>
       </div>
       <nav class="nav__cta" aria-label="Main navigation">
@@ -121,7 +137,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <!-- HERO -->
     <section class="hero">
       <div class="container hero__grid">
@@ -154,7 +170,7 @@
       <div class="container">
         <div class="section__head">
           <h2 class="section__title">الإنجازات البارزة</h2>
-          <p class="section__desc">الاثر الدائم.</p>
+          <p class="section__desc">الأثر الدائم.</p>
         </div>
         <ul class="timeline" id="achievementsList"></ul>
       </div>
@@ -197,23 +213,25 @@
     const PROFILE = { name:"سعد السبيعي", years:20, certsCount:60, projectsCount:30, photo:"profile.jpg" };
     const fmtNum = (n)=>Number(n).toLocaleString('en-US');
 
-    /* أيقونات الإنجازات (SVG) */
-    function iconSvg(type){
-      // كل الأيقونات بلون currentColor وتعمل RTL/LTR
-      if(type==='shield') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6"/></svg>';
-      if(type==='training') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M4 6h12a4 4 0 014 4v8H8a4 4 0 01-4-4V6z" stroke="currentColor" stroke-width="1.6"/><path d="M8 6v12" stroke="currentColor" stroke-width="1.6"/></svg>';
-      if(type==='map') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2" fill="currentColor"/></svg>';
-      if(type==='digital') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 20h10" stroke="currentColor" stroke-width="1.6"/></svg>';
-      if(type==='workflow') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="15" y="4" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="9" y="14" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 7h6M12 10v4" stroke="currentColor" stroke-width="1.6"/></svg>';
-      if(type==='event') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 3v4M16 3v4M3 10h18" stroke="currentColor" stroke-width="1.6"/></svg>';
-      if(type==='chart') return '<svg class="ico" viewBox="0 0 24 24" fill="none"><path d="M3 20h18" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="12" width="3" height="6" fill="currentColor"/><rect x="10.5" y="9" width="3" height="9" fill="currentColor"/><rect x="16" y="6" width="3" height="12" fill="currentColor"/></svg>';
-      return '<svg class="ico" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>';
+    /* SVG أيقونات (inline) */
+    function icon(name){
+      const base = 'currentColor';
+      const map = {
+        drill:`<svg viewBox="0 0 24 24" fill="none"><path d="M4 7h10l3 3v4l-3 3H4V7z" stroke="${base}" stroke-width="1.8"/><path d="M14 10h4M14 14h3" stroke="${base}" stroke-width="1.8"/></svg>`,
+        training:`<svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9-4 9 4-9 4-9-4z" stroke="${base}" stroke-width="1.8"/><path d="M7 12v5c4 2 6 2 10 0v-5" stroke="${base}" stroke-width="1.8"/></svg>`,
+        map:`<svg viewBox="0 0 24 24" fill="none"><path d="M9 4l6 2 6-2v16l-6 2-6-2-6 2V6l6-2z" stroke="${base}" stroke-width="1.8"/><circle cx="12" cy="12" r="2.3" stroke="${base}" stroke-width="1.8"/></svg>`,
+        digital:`<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="${base}" stroke-width="1.8"/><path d="M8 20h8" stroke="${base}" stroke-width="1.8"/></svg>`,
+        handover:`<svg viewBox="0 0 24 24" fill="none"><path d="M8 7l-4 4 4 4" stroke="${base}" stroke-width="1.8"/><path d="M16 17l4-4-4-4" stroke="${base}" stroke-width="1.8"/><path d="M13 5v14" stroke="${base}" stroke-width="1.8"/></svg>`,
+        events:`<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="${base}" stroke-width="1.8"/><path d="M8 3v4M16 3v4M3 10h18" stroke="${base}" stroke-width="1.8"/></svg>`,
+        bi:`<svg viewBox="0 0 24 24" fill="none"><path d="M5 20V10" stroke="${base}" stroke-width="1.8"/><path d="M10 20V6" stroke="${base}" stroke-width="1.8"/><path d="M15 20V12" stroke="${base}" stroke-width="1.8"/><path d="M20 20V8" stroke="${base}" stroke-width="1.8"/></svg>`
+      };
+      return map[name] || map.drill;
     }
 
-    /* إنجازات مع الأثر + نوع الأيقونة */
+    /* إنجازات مع أيقونة + “الأثر” (بدون سنوات) */
     const ACHIEVEMENTS = [
       {
-        icon:'shield',
+        icon:'drill',
         title:"تخطيط وتنفيذ فرضيات أمنية لتعزيز جاهزية الفرق الميدانية ورفع كفاءة الاستجابة.",
         impact:"رفع الجاهزية وخفض زمن الاستجابة للحوادث."
       },
@@ -233,17 +251,17 @@
         impact:"تقليص زمن المعاملات ورفع رضا المستخدم الداخلي."
       },
       {
-        icon:'workflow',
+        icon:'handover',
         title:"أتمتة إجراءات استلام وتسليم الورديات لضمان الدقة ورفع مستوى موثوقية العمليات التشغيلية.",
         impact:"توثيق رقمي وتقليل الأخطاء وتحسين الاتساق التشغيلي."
       },
       {
-        icon:'event',
+        icon:'events',
         title:"المشاركة في تخطيط العمليات وتنظيم الموارد في الفعاليات والمناسبات الكبرى.",
         impact:"تغطية موارد متوازنة ومسارات تدخل واضحة في الذروة."
       },
       {
-        icon:'chart',
+        icon:'bi',
         title:"تطوير لوحات تحكم تفاعلية للبلاغات الأمنية عبر Power BI لدعم اتخاذ القرار وتحسين مؤشرات الأداء.",
         impact:"رؤية لحظية للمؤشرات وتسريع اتخاذ القرار."
       }
@@ -255,15 +273,16 @@
         const li = document.createElement('li');
         li.className = 'tl ' + (idx % 2 ? 'is-right' : 'is-left');
         li.innerHTML = `
+          <div class="tl__icon" aria-hidden="true">${icon(a.icon)}</div>
           <div class="card__body">
-            <h4 class="ah-title">${iconSvg(a.icon)}<span>${a.title}</span></h4>
+            <p style="margin:0 0 8px">${a.title}</p>
             <div class="impact"><strong>الأثر:</strong> ${a.impact}</div>
           </div>`;
         ul.appendChild(li);
       });
     }
 
-    /* الدورات — مرتبة وبدون أرقام في العرض + زر أكثر/أقل */
+    /* الدورات — نفس قائمتك مرتبة وبدون أرقام في العرض */
     const COURSES = [
       {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻷﻣﻨﻴﺔ (اﻗﻠﻴﻤﻲ)", org:"—"},
       {title:"اﺧﺼﺎﺋﻲ ادارة اﻟﻤﺨﺎﻃﺮ اﻻﻣﻨﻴﺔ (وﻃﻨﻲ)", org:"—"},
@@ -380,8 +399,8 @@
     }
 
     /* تهيئة أولية */
-    document.getElementById('heroChips').innerHTML=['Operations','Risk Management','KPI','GIS'].map(t=>`<span class="chip">${t}</span>`).join('');
-    document.getElementById('sideChips').innerHTML=['Power BI','Django','Flutter','MapLibre/GIS'].map(t=>`<span class="chip">${t}</span>`).join('');
+    document.getElementById('heroChips').innerHTML=['GIS','KPI','Risk Management','Operations'].map(t=>`<span class="chip">${t}</span>`).join('');
+    document.getElementById('sideChips').innerHTML=['MapLibre/GIS','Flutter','Django','Power BI'].map(t=>`<span class="chip">${t}</span>`).join('');
     document.getElementById('year').textContent=new Date().getFullYear();
 
     renderAchievements();
@@ -405,7 +424,7 @@
       document.getElementById('kpiProjectsLbl').textContent=(lang==='ar'?'مشروع رئيسي':'Major Projects');
       document.getElementById('skillsTitle').textContent=(lang==='ar'?'المهارات والأدوات':'Skills & Tools');
       document.getElementById('skillsDesc').textContent=(lang==='ar'?'مجالات الخبرة التقنية والعملية.':'Technical and operational expertise.');
-      renderCourses(); // تحديث نص زر أكثر/أقل
+      renderCourses(); // لتحديث نص زر أكثر/أقل
     });
   </script>
 </body>
